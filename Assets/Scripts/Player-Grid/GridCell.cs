@@ -8,12 +8,10 @@ public class GridCell : MonoBehaviour
 
     public void OnMouseClick()
     {
-       if (_isPlaceable)
+        if (_isPlaceable)
         {
             Debug.Log("Entity Placed");
             _isPlaceable = false;
         }
     }
-    
-   
 }
