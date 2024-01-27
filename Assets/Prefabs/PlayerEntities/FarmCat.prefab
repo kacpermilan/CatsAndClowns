@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5867598099604785184}
   - component: {fileID: 9118592358536564017}
+  - component: {fileID: 6600863200821687193}
   m_Layer: 0
   m_Name: FarmCat
   m_TagString: Untagged
@@ -51,6 +52,41 @@ MonoBehaviour:
   _currentHealth: 50
   _maxHealth: 50
   Cost: 3
+--- !u!58 &6600863200821687193
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4886640526824789823}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.08714366, y: -0.031320214}
+  serializedVersion: 2
+  m_Radius: 0.70521176
 --- !u!1 &5627591312368716821
 GameObject:
   m_ObjectHideFlags: 0
@@ -124,8 +160,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0.90588236, g: 0.24705882, b: 0.87058824, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 7223ac185a04bb34aa7e133192aef601, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
