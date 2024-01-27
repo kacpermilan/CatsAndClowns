@@ -10,6 +10,7 @@ public class InputManager : MonoBehaviour
     PlayerInputAction _playerInputActions;
 
     public event EventHandler OnMouseClick;
+    public event EventHandler OnGetRemoveObject;
 
     private void Awake()
     {
@@ -21,6 +22,12 @@ public class InputManager : MonoBehaviour
     {
         _playerInputActions.Enable();
         _playerInputActions.Player.MouseClick.performed += GetMouseClick;
+        _playerInputActions.Player.RemoveObject.performed += GetRemoveObject;
+    }
+
+    private void GetRemoveObject(UnityEngine.InputSystem.InputAction.CallbackContext obj)
+    {
+        OnGetRemoveObject?.Invoke(this, EventArgs.Empty);
     }
 
     private void GetMouseClick(UnityEngine.InputSystem.InputAction.CallbackContext obj)

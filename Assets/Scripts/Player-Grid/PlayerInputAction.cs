@@ -35,6 +35,15 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""RemoveObject"",
+                    ""type"": ""Button"",
+                    ""id"": ""e29c8037-cd8c-4ee0-ad93-2102ac80cf0c"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -48,6 +57,17 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
                     ""action"": ""MouseClick"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e2786c74-5bce-4b13-af4c-8fab88502f29"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""RemoveObject"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -57,6 +77,7 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
         // Player
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_MouseClick = m_Player.FindAction("MouseClick", throwIfNotFound: true);
+        m_Player_RemoveObject = m_Player.FindAction("RemoveObject", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -119,11 +140,13 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Player;
     private List<IPlayerActions> m_PlayerActionsCallbackInterfaces = new List<IPlayerActions>();
     private readonly InputAction m_Player_MouseClick;
+    private readonly InputAction m_Player_RemoveObject;
     public struct PlayerActions
     {
         private @PlayerInputAction m_Wrapper;
         public PlayerActions(@PlayerInputAction wrapper) { m_Wrapper = wrapper; }
         public InputAction @MouseClick => m_Wrapper.m_Player_MouseClick;
+        public InputAction @RemoveObject => m_Wrapper.m_Player_RemoveObject;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -136,6 +159,9 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
             @MouseClick.started += instance.OnMouseClick;
             @MouseClick.performed += instance.OnMouseClick;
             @MouseClick.canceled += instance.OnMouseClick;
+            @RemoveObject.started += instance.OnRemoveObject;
+            @RemoveObject.performed += instance.OnRemoveObject;
+            @RemoveObject.canceled += instance.OnRemoveObject;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -143,6 +169,9 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
             @MouseClick.started -= instance.OnMouseClick;
             @MouseClick.performed -= instance.OnMouseClick;
             @MouseClick.canceled -= instance.OnMouseClick;
+            @RemoveObject.started -= instance.OnRemoveObject;
+            @RemoveObject.performed -= instance.OnRemoveObject;
+            @RemoveObject.canceled -= instance.OnRemoveObject;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -163,5 +192,6 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
     public interface IPlayerActions
     {
         void OnMouseClick(InputAction.CallbackContext context);
+        void OnRemoveObject(InputAction.CallbackContext context);
     }
 }
