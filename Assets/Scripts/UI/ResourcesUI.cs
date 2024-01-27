@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
@@ -9,12 +7,12 @@ public class ResourcesUI : MonoBehaviour
 
     private void Start()
     {
-        PointsManager.Instance.OnResourcesChanged += PointsBank_OnResourcesChanged;
-        _resourcesText.text = "Resources: " + PointsManager.Instance.GetCurrentResources().ToString();
+        ResourceManager.Instance.OnResourcesChanged += PointsBank_OnResourcesChanged;
+        _resourcesText.text = "Resources: " + ResourceManager.Instance.GetCurrentResources();
     }
 
-    private void PointsBank_OnResourcesChanged(object sender, PointsManager.OnResourcesChangedEventArgs e)
+    private void PointsBank_OnResourcesChanged(object sender, ResourceManager.OnResourcesChangedEventArgs e)
     {
-        _resourcesText.text = "Resources: " + e.currentResources.ToString();
+        _resourcesText.text = "Resources: " + e.CurrentResources;
     }
 }

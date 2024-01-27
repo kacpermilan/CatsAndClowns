@@ -1,11 +1,10 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class EnemyMover : MonoBehaviour
 {
-    [SerializeField] private float _moveSpeed;
+    [SerializeField] private int _moveSpeed; // Assuming this is the number of tiles to move
 
     [Header("Grid Cells check")]
     [SerializeField] private Transform _cellCheckOriginPoint;
@@ -15,32 +14,34 @@ public class EnemyMover : MonoBehaviour
     [Header("Attacking")]
     [SerializeField] private int _damagePoints;
 
-    // getter and setter methods for hasAttack created, so that TurnManager can set _hasAttact to false if state is changed to 
-    // action state AND so that it can start PLAYERCHOICES state if every spawned enemy has attacked
     private bool _hasAttacked;
 
-    private void Update()
-    { 
+    [SerializeField]
+    private float _tileWidth = 10.0f; // Adjust this based on your grid size
+
+    private void Awake() => GameMaster.Instance.OnCurrentStateChange += OnCurrentStateChange;
+    private void OnCurrentStateChange(object sender, EventArgs e)
+    {
         CheckIfCanMove();
     }
 
     private void CheckIfCanMove()
     {
-       RaycastHit2D hitCollider = Physics2D.Raycast(_cellCheckOriginPoint.position, -Vector2.right, _cellCheckRayLength, _whatIsTraversable);
-        if (hitCollider.collider.TryGetComponent(out GridCell gridCell))
+        RaycastHit2D hitCollider = Physics2D.Raycast(_cellCheckOriginPoint.position, -Vector2.right, _cellCheckRayLength, _whatIsTraversable);
+        if (hitCollider.collider != null && hitCollider.collider.TryGetComponent(out GridCell gridCell))
         {
-           bool IsPlayerOnGridCell = gridCell.GetEntityInCell();
-            if (IsPlayerOnGridCell)
+            bool isPlayerOnGridCell = gridCell.GetEntityInCell();
+            if (isPlayerOnGridCell)
             {
                 if (!_hasAttacked)
                 {
-                     gridCell.GetEntityInCell().GetComponent<ABaseEntity>().TakeDamage(_damagePoints);
+                    gridCell.GetEntityInCell().GetComponent<ABaseEntity>().TakeDamage(_damagePoints);
                     _hasAttacked = true;
                 }
             }
             else
             {
-                transform.position += new Vector3(-_moveSpeed * Time.deltaTime, 0, 0);
+                MoveEnemy();
             }
         }
         else
@@ -48,6 +49,13 @@ public class EnemyMover : MonoBehaviour
             //placeholder to stop null reference exception
             transform.position = Vector3.zero;
         }
+    }
+
+    private void MoveEnemy()
+    {
+        // Assuming each tile is directly to the left of the current position
+        Vector3 nextPosition = transform.position + new Vector3(-_tileWidth, 0, 0);
+        transform.position = Vector3.MoveTowards(transform.position, nextPosition, _moveSpeed * Time.deltaTime);
     }
 
     public bool HasAttacked()
@@ -62,6 +70,6 @@ public class EnemyMover : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        Gizmos.DrawLine(_cellCheckOriginPoint.position, new Vector2(_cellCheckOriginPoint.position.x + _cellCheckRayLength, _cellCheckOriginPoint.position.y));
+        Gizmos.DrawLine(_cellCheckOriginPoint.position, new Vector2(_cellCheckOriginPoint.position.x - _cellCheckRayLength, _cellCheckOriginPoint.position.y));
     }
 }

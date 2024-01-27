@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3550496149072456510}
   - component: {fileID: 5962122491667170132}
   - component: {fileID: 5196468582071934937}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: BasicCat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -97,7 +97,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1333869047337259315}
   - component: {fileID: 843071594825465951}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Visual
   m_TagString: Untagged
   m_Icon: {fileID: 0}

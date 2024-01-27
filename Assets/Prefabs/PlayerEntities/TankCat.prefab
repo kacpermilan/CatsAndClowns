@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3324450221909904099}
   - component: {fileID: 5014329995330030684}
   - component: {fileID: 5147217505103836863}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: TankCat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -97,7 +97,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2869773500709287476}
   - component: {fileID: 8326560901829315846}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Visual
   m_TagString: Untagged
   m_Icon: {fileID: 0}

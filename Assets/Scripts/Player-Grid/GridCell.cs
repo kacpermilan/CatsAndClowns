@@ -11,7 +11,7 @@ public class GridCell : MonoBehaviour
     {
         if (IsPlaceable())
         {
-            Transform playerEntityChosenToPlace = EntityPlacer.Instance.GetCurrentlySelectedEntity();
+            Transform playerEntityChosenToPlace = PlayerTurn.Instance.GetCurrentlySelectedEntity();
             Transform playerEntityInstance = Instantiate(playerEntityChosenToPlace, transform.position, Quaternion.identity);
             PlaceEntityInCell(playerEntityInstance);
             Debug.Log("PLACED");

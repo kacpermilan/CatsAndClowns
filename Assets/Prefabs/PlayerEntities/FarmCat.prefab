@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5867598099604785184}
   - component: {fileID: 9118592358536564017}
   - component: {fileID: 6600863200821687193}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: FarmCat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -97,7 +97,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2501976666615403301}
   - component: {fileID: 3904761080544207412}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Visual
   m_TagString: Untagged
   m_Icon: {fileID: 0}

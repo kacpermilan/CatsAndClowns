@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4344736254192983042}
   - component: {fileID: 8967588663590908499}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Visual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5314491782050715244}
   - component: {fileID: 8088837901666020322}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: LaserCat
   m_TagString: Untagged
   m_Icon: {fileID: 0}

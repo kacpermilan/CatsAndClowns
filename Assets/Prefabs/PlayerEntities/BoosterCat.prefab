@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8899492810513596172}
   - component: {fileID: 5199358832091068454}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: BoosterCat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -61,7 +61,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5071698363170972126}
   - component: {fileID: 2307387329942787332}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Visual
   m_TagString: Untagged
   m_Icon: {fileID: 0}

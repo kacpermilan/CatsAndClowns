@@ -16,7 +16,7 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private Transform[] _spawnPoints;
 
     // So that we can iterate through all the spawned enemies and only change SpawningState to AWAITINGSPAWN and
-    // State to PLAYERCHOICES when all of the currently spawn enemies HasAttacked (ememyMover) and 
+    // GameState to PLAYERCHOICES when all of the currently spawn enemies HasAttacked (ememyMover) and 
     // and set it back to false when ACTIONSTATE starts again.
     
     //We also need a way to remove spawned enemies from the list, when ther're destroyed
@@ -26,7 +26,7 @@ public class EnemySpawner : MonoBehaviour
     private void Update()
     {
 
-        if (TurnsManager.Instance.GetCurrentGamePhase() == TurnsManager.State.ACTIONSTATE)
+        if (GameMaster.Instance.GetCurrentGamePhase() == GameMaster.GameState.EnemySequence)
         {
             if (_spawnState == SpawningState.WAITING)
             {
@@ -40,7 +40,7 @@ public class EnemySpawner : MonoBehaviour
                     //needs to do the bellow only once there are no EnemyMovers which !HasAttacked
                     //Not sure how to implement it. My brain is dead at this point xD
                     _spawnState = SpawningState.AWAITINGTOSPAWN;
-                    TurnsManager.Instance.SetCurrentState(TurnsManager.State.PLAYERCHOICES);
+                    GameMaster.Instance.SetCurrentState(GameMaster.GameState.PlayerTurn);
                 }
             }
 
@@ -64,7 +64,7 @@ public class EnemySpawner : MonoBehaviour
         //test
         _spawnState = SpawningState.WAITING;
         _currentWaveIndex++;
-        //TurnsManager.Instance.SetCurrentState(TurnsManager.State.PLAYERCHOICES);
+        //GameMaster.Instance.SetCurrentState(GameMaster.GameState.PLAYERCHOICES);
     }
 
     private void SpawnEnemyFromWave()
