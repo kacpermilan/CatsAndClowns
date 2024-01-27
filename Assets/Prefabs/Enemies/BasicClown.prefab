@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 467795246031821033}
   - component: {fileID: 4713997085926603343}
+  - component: {fileID: 5989673627681966553}
+  - component: {fileID: 6842208418983798231}
   m_Layer: 0
   m_Name: Visual
   m_TagString: Untagged
@@ -84,6 +86,39 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &5989673627681966553
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4816338384492288141}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e33d06458c541fa4098e19547610842b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &6842208418983798231
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4816338384492288141}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 908897686aeb32942bcdc004b88d3e2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7244764738261290577
 GameObject:
   m_ObjectHideFlags: 0
@@ -131,11 +166,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ada53fccc7041aa4f845f62fb3df7a94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _name: Clown
-  _description: You have been clowned.
-  _attackStrength: 8
-  _currentHealth: 60
-  _maxHealth: 60
 --- !u!114 &4143746535387990854
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -155,6 +185,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   _damagePoints: 10
+  _tileWidth: 10
 --- !u!1001 &4792125755696270109
 PrefabInstance:
   m_ObjectHideFlags: 0
