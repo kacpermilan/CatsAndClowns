@@ -8,9 +8,10 @@ public class EnemySpawner : MonoBehaviour
     public enum SpawningState { SPAWNING, WAITING, AWAITINGTOSPAWN}
 
     [SerializeField] private EnemyWave[] _enemyWaves;
+
     [SerializeField] private int _currentWaveIndex;
 
-    [SerializeField] private SpawningState _spawnState = new SpawningState();
+    [SerializeField] private SpawningState _spawnState;
 
     [SerializeField] private Transform[] _spawnPoints;
 
@@ -20,7 +21,7 @@ public class EnemySpawner : MonoBehaviour
     
     //We also need a way to remove spawned enemies from the list, when ther're destroyed
 
-    [SerializeField] private List<Transform> _spawnedEnemies = new List<Transform>();
+    [SerializeField] private List<Transform> _spawnedEnemies = new();
  
     private void Update()
     {
@@ -35,19 +36,12 @@ public class EnemySpawner : MonoBehaviour
                     {
                         return;
                     }
-                    else
-                    {
-                        //needs to do the bellow only once there are no EnemyMovers which !HasAttacked
-                        //Not sure how to implement it. My brain is dead at this point xD
-                        _currentWaveIndex++;
-                        _spawnState = SpawningState.AWAITINGTOSPAWN;
-                        TurnsManager.Instance.SetCurrentState(TurnsManager.State.PLAYERCHOICES);
-                    }
+
+                    //needs to do the bellow only once there are no EnemyMovers which !HasAttacked
+                    //Not sure how to implement it. My brain is dead at this point xD
+                    _spawnState = SpawningState.AWAITINGTOSPAWN;
+                    TurnsManager.Instance.SetCurrentState(TurnsManager.State.PLAYERCHOICES);
                 }
-                
-               
-
-
             }
 
             if (_spawnState != SpawningState.SPAWNING)
@@ -64,11 +58,12 @@ public class EnemySpawner : MonoBehaviour
         for (int i = 0; i < _enemyWaves[_currentWaveIndex].GetNumberOfEnemiesToSpawn(); i++)
         {
             SpawnEnemyFromWave();
-            yield return new WaitForSeconds(_enemyWaves[_currentWaveIndex].GetTimeBetweenEnemiesSpawning());
+            yield return new WaitForSeconds(0);
         }
+
         //test
         _spawnState = SpawningState.WAITING;
-        //_currentWaveIndex++;
+        _currentWaveIndex++;
         //TurnsManager.Instance.SetCurrentState(TurnsManager.State.PLAYERCHOICES);
     }
 
