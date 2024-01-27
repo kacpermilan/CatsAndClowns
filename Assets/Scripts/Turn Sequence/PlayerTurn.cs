@@ -1,12 +1,13 @@
 using System;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class PlayerTurn : MonoBehaviour
 {
     public static PlayerTurn Instance;
 
-    [SerializeField] 
-    private LayerMask _whatIsPlaceable;
+    //[SerializeField] 
+    //private LayerMask _whatIsPlaceable;
 
     //This is the cell mouse is currently hovering over
     [SerializeField] 
@@ -16,6 +17,7 @@ public class PlayerTurn : MonoBehaviour
     [SerializeField] 
     private Transform _currentlySelectedEntity;
 
+    [SerializeField] private bool _isOverUIElement;
     private void Awake()
     {
         Instance = this;
@@ -29,7 +31,43 @@ public class PlayerTurn : MonoBehaviour
 
     private void Update()
     {
-        SearchForClickableGridCell();
+       
+        if (!EventSystem.current.IsPointerOverGameObject())
+        {
+            _isOverUIElement = false;
+             SearchForClickableObjects();
+        }
+        else
+        {
+            _isOverUIElement = true;
+            SearchForCards();
+        }
+              
+    }
+
+    private void SearchForCards()
+    {
+        Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+        RaycastHit2D hit = Physics2D.Raycast(mousePosition, Vector2.zero);
+        if (hit.collider != null)
+        {
+            Debug.Log(hit.collider.gameObject.name + " test");
+            if (hit.collider.TryGetComponent(out Card card))
+            {
+                _currentlySelectedEntity = card.GetEntityInThisCard();
+                Debug.Log("Card " + card.gameObject.name);
+            }
+            else
+            {
+                _currentGridCell =
+                null;
+            }
+        }
+        else
+        {
+            _currentGridCell = null;
+        }
     }
 
     private void InputManager_OnMouseClick(object sender, System.EventArgs e)
@@ -40,6 +78,8 @@ public class PlayerTurn : MonoBehaviour
             return;
         }
 
+
+        if (_isOverUIElement) return;
         // Check if player has chosen any card
         if (_currentlySelectedEntity == null)
         {
@@ -107,16 +147,22 @@ public class PlayerTurn : MonoBehaviour
         }
     }
 
-    private void SearchForClickableGridCell()
+    private void SearchForClickableObjects()
     {
         Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-        RaycastHit2D hit = Physics2D.Raycast(mousePosition, Vector2.zero, _whatIsPlaceable);
+        RaycastHit2D hit = Physics2D.Raycast(mousePosition, Vector2.zero);
         if (hit.collider != null)
         {
-            _currentGridCell = hit.collider.TryGetComponent(out GridCell gridCell) ? gridCell :
-                //gridCell.OnMouseClick();
+            if (hit.collider.TryGetComponent(out GridCell gridCell))
+            {
+                _currentGridCell = gridCell;
+            }
+            else
+            {
+                _currentGridCell =      //gridCell.OnMouseClick();
                 null;
+            }
         }
         else
         {
