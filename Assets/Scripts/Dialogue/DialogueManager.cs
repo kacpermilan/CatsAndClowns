@@ -19,6 +19,11 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private Button _nextButton;
     [SerializeField] private TextMeshProUGUI _dialogueText;
 
+    [Header("Portraits")]
+    [SerializeField] private GameObject _mnichPortrait;
+    [SerializeField] private GameObject _satanPortrait;
+    [SerializeField] private bool _isPlayerTalking;
+
     private void Start()
     {
         _dialogueText.text = string.Empty;
@@ -30,6 +35,7 @@ public class DialogueManager : MonoBehaviour
             }
             else
             {
+                _isPlayerTalking = !_isPlayerTalking;
                 _dialogueText.text = string.Empty;
                 _dialogueLineIndex++;
                 StartCoroutine(TypingRoutine());
@@ -38,6 +44,20 @@ public class DialogueManager : MonoBehaviour
         });
 
         StartCoroutine(TypingRoutine());
+    }
+
+    private void Update()
+    {
+        if (_isPlayerTalking)
+        {
+            _satanPortrait.SetActive(false);
+            _mnichPortrait.SetActive(true);
+        }
+        else
+        {
+            _satanPortrait.SetActive(true);
+            _mnichPortrait.SetActive(false);
+        }
     }
 
     private IEnumerator TypingRoutine()
