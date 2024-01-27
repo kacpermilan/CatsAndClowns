@@ -35,19 +35,12 @@ public class EnemySpawner : MonoBehaviour
                     {
                         return;
                     }
-                    else
-                    {
-                        //needs to do the bellow only once there are no EnemyMovers which !HasAttacked
-                        //Not sure how to implement it. My brain is dead at this point xD
-                        _currentWaveIndex++;
-                        _spawnState = SpawningState.AWAITINGTOSPAWN;
-                        TurnsManager.Instance.SetCurrentState(TurnsManager.State.PLAYERCHOICES);
-                    }
+
+                    //needs to do the bellow only once there are no EnemyMovers which !HasAttacked
+                    //Not sure how to implement it. My brain is dead at this point xD
+                    _spawnState = SpawningState.AWAITINGTOSPAWN;
+                    TurnsManager.Instance.SetCurrentState(TurnsManager.State.PLAYERCHOICES);
                 }
-                
-               
-
-
             }
 
             if (_spawnState != SpawningState.SPAWNING)
@@ -66,9 +59,10 @@ public class EnemySpawner : MonoBehaviour
             SpawnEnemyFromWave();
             yield return new WaitForSeconds(_enemyWaves[_currentWaveIndex].GetTimeBetweenEnemiesSpawning());
         }
+
         //test
         _spawnState = SpawningState.WAITING;
-        //_currentWaveIndex++;
+        _currentWaveIndex++;
         //TurnsManager.Instance.SetCurrentState(TurnsManager.State.PLAYERCHOICES);
     }
 
