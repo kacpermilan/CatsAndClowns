@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -18,6 +19,11 @@ public class WinScreenDialogue : MonoBehaviour
     [SerializeField] private Button _nextButton;
     [SerializeField] private TextMeshProUGUI _dialogueText;
 
+    [Header("Portraits")]
+    [SerializeField] private GameObject _mnichPortrait;
+    [SerializeField] private GameObject _satanPortrait;
+    [SerializeField] private bool _isPlayerTalking;
+
     private void Start()
     {
         _dialogueText.text = string.Empty;
@@ -29,6 +35,7 @@ public class WinScreenDialogue : MonoBehaviour
             }
             else
             {
+                _isPlayerTalking = !_isPlayerTalking;
                 _dialogueText.text = string.Empty;
                 _dialogueLineIndex++;
                 StartCoroutine(TypingRoutine());
@@ -37,6 +44,24 @@ public class WinScreenDialogue : MonoBehaviour
         });
 
         StartCoroutine(TypingRoutine());
+    }
+    private void Update()
+    {
+        DisplayPortrait();
+    }
+
+    private void DisplayPortrait()
+    {
+        if (_isPlayerTalking)
+        {
+            _mnichPortrait.SetActive(true);
+            _satanPortrait.SetActive(false);
+        }
+        else
+        {
+            _mnichPortrait.SetActive(false);
+            _satanPortrait.SetActive(true);
+        }
     }
 
     private IEnumerator TypingRoutine()
