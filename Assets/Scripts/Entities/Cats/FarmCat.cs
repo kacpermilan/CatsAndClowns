@@ -5,4 +5,9 @@ public class FarmCat : APlayerEntity
     {
         
     }
+
+    public override void DoAction()
+    {
+        ResourceManager.Instance.IncreaseResources(1);
+    }
 }

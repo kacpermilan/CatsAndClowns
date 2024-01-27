@@ -4,19 +4,15 @@ using UnityEngine;
 public class ResourceManager : MonoBehaviour
 {
     public static ResourceManager Instance;
-    
-    [SerializeField] 
     private float _currentResources;
-
-    [SerializeField] 
-    private float _startingResources;
+    private const int STARTING_RESOURCES = 1;
 
     public event EventHandler<OnResourcesChangedEventArgs> OnResourcesChanged;
 
     private void Awake()
     {
         Instance = this;
-        _currentResources = _startingResources;
+        _currentResources = STARTING_RESOURCES;
     }
 
     public float GetCurrentResources() => _currentResources;

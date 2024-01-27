@@ -36,7 +36,7 @@ public class GameMaster : MonoBehaviour
     {
         this._gameState = gameState;
         
-        OnCurrentStateChange?.Invoke(this, new OnCurrentStateChangeEventArgs { CurrentGameState = this._gameState });
+        OnCurrentStateChange?.Invoke(this, new OnCurrentStateChangeEventArgs { CurrentGameState = _gameState });
     }
 
     public class OnCurrentStateChangeEventArgs : EventArgs { public GameState CurrentGameState; }

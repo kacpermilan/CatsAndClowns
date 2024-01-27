@@ -5,4 +5,9 @@ public class TankCat : APlayerEntity
     {
         
     }
+
+    public override void DoAction()
+    {
+        throw new System.NotImplementedException();
+    }
 }

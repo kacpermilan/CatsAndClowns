@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -47,28 +48,25 @@ public class PlayerTurn : MonoBehaviour
 
     private void SearchForCards()
     {
-        Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-
-        RaycastHit2D hit = Physics2D.Raycast(mousePosition, Vector2.zero);
-        if (hit.collider != null)
+        PointerEventData pointerEventData = new(EventSystem.current)
         {
-            Debug.Log(hit.collider.gameObject.name + " test");
-            if (hit.collider.TryGetComponent(out Card card))
+            position = Input.mousePosition
+        };
+
+        List<RaycastResult> results = new();
+        EventSystem.current.RaycastAll(pointerEventData, results);
+
+        foreach (RaycastResult result in results)
+        {
+            if (result.gameObject.TryGetComponent(out Card card))
             {
                 _currentlySelectedEntity = card.GetEntityInThisCard();
                 Debug.Log("Card " + card.gameObject.name);
+                break;
             }
-            else
-            {
-                _currentGridCell =
-                null;
-            }
-        }
-        else
-        {
-            _currentGridCell = null;
         }
     }
+
 
     private void InputManager_OnMouseClick(object sender, System.EventArgs e)
     {

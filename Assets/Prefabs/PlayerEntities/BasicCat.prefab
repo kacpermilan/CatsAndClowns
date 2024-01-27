@@ -46,12 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8af06dd3b51b0e24abb01a82ec925574, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _name: Cat Wizard
-  _description: A mystical cat with magical powers.
-  _attackStrength: 10
-  _currentHealth: 50
-  _maxHealth: 50
-  Cost: 3
+  MarshmallowBulletPrefab: {fileID: 8105382441505993007, guid: d186a88767bc0494c816203ab5f5aa39, type: 3}
 --- !u!58 &5196468582071934937
 CircleCollider2D:
   m_ObjectHideFlags: 0

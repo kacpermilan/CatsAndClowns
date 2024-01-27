@@ -5,4 +5,9 @@ public class BoosterCat : APlayerEntity
     {
         
     }
+
+    public override void DoAction()
+    {
+        throw new System.NotImplementedException();
+    }
 }

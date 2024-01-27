@@ -20,9 +20,12 @@ public class EnemyMover : MonoBehaviour
     private float _tileWidth = 10.0f; // Adjust this based on your grid size
 
     private void Awake() => GameMaster.Instance.OnCurrentStateChange += OnCurrentStateChange;
-    private void OnCurrentStateChange(object sender, EventArgs e)
+    private void OnCurrentStateChange(object sender, GameMaster.OnCurrentStateChangeEventArgs e)
     {
-        CheckIfCanMove();
+        if (e.CurrentGameState == GameMaster.GameState.EnemySequence)
+        {
+            CheckIfCanMove();
+        }
     }
 
     private void CheckIfCanMove()
