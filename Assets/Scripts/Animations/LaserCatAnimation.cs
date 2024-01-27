@@ -4,15 +4,24 @@ using UnityEngine;
 
 public class LaserCatAnimation : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private Animator _animator;
+
+    private LaserCat _laserCat;
+
+    private void Awake()
     {
-        
+        _animator = GetComponent<Animator>();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Start()
     {
-        
+        _laserCat = GetComponentInParent<LaserCat>();
     }
+
+    private void Update()
+    {
+        _animator.SetBool("IsResting", _laserCat.OnCooldown);
+    }
+
+
 }
