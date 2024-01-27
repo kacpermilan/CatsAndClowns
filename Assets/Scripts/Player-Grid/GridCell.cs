@@ -1,50 +1,34 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class GridCell : MonoBehaviour
 {
-    [SerializeField] private bool _isPlaceable;
-    //So that rightHand side Cells are never placeable for player
-    [SerializeField] private bool _isEnemyCell;
+    [SerializeField] 
+    private bool _isEnemyCell;
 
-    [SerializeField] private Transform _playerEntityPlaced;
-    
+    [SerializeField] private Transform _entityInCell;
 
-    private void Awake()
-    {
-        if (_isEnemyCell)
-        {
-            _isPlaceable = false;
-        }
-        else
-        {
-            _isPlaceable = true;
-        }
-    }
     public void OnMouseClick()
     {
-        if (_isPlaceable)
+        if (IsPlaceable())
         {
-           Transform _playerEntityChosenToPlace = EntityPlacer.Instance.GetCurrentlySelectedEntity();
-            Transform playerEntityInstance = Instantiate(_playerEntityChosenToPlace, transform.position, Quaternion.identity);
-            _playerEntityPlaced = playerEntityInstance;
+            Transform playerEntityChosenToPlace = EntityPlacer.Instance.GetCurrentlySelectedEntity();
+            Transform playerEntityInstance = Instantiate(playerEntityChosenToPlace, transform.position, Quaternion.identity);
+            PlaceEntityInCell(playerEntityInstance);
             Debug.Log("PLACED");
-            _isPlaceable = false;
+        }
+        else if (_entityInCell != null)
+        {
+            Debug.Log("You cannot place your entity on this cell. This cell is being occupied.");
         }
         else
         {
-            Debug.Log("You cannot place your entity on this cell");
+            Debug.Log("You cannot place your entity on this cell. This cell belong to the enemy.");
         }
     }
 
-    public bool IsPlaceable()
-    {
-        return _isPlaceable;
-    }
+    public bool IsPlaceable() => !_isEnemyCell && _entityInCell == null;
 
-    public Transform GetPlayerEntityPlaced()
-    {
-        return _playerEntityPlaced;
-    }
+    public Transform GetEntityInCell() => _entityInCell;
+
+    public void PlaceEntityInCell(Transform entity) => _entityInCell = entity;
 }

@@ -8,9 +8,10 @@ public class EnemySpawner : MonoBehaviour
     public enum SpawningState { SPAWNING, WAITING, AWAITINGTOSPAWN}
 
     [SerializeField] private EnemyWave[] _enemyWaves;
+
     [SerializeField] private int _currentWaveIndex;
 
-    [SerializeField] private SpawningState _spawnState = new SpawningState();
+    [SerializeField] private SpawningState _spawnState;
 
     [SerializeField] private Transform[] _spawnPoints;
 
@@ -20,7 +21,7 @@ public class EnemySpawner : MonoBehaviour
     
     //We also need a way to remove spawned enemies from the list, when ther're destroyed
 
-    [SerializeField] private List<Transform> _spawnedEnemies = new List<Transform>();
+    [SerializeField] private List<Transform> _spawnedEnemies = new();
  
     private void Update()
     {
@@ -57,7 +58,7 @@ public class EnemySpawner : MonoBehaviour
         for (int i = 0; i < _enemyWaves[_currentWaveIndex].GetNumberOfEnemiesToSpawn(); i++)
         {
             SpawnEnemyFromWave();
-            yield return new WaitForSeconds(_enemyWaves[_currentWaveIndex].GetTimeBetweenEnemiesSpawning());
+            yield return new WaitForSeconds(0);
         }
 
         //test
