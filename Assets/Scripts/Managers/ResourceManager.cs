@@ -5,7 +5,7 @@ public class ResourceManager : MonoBehaviour
 {
     public static ResourceManager Instance;
     private float _currentResources;
-    private const int STARTING_RESOURCES = 1;
+    private const int STARTING_RESOURCES = 100;
 
     public event EventHandler<OnResourcesChangedEventArgs> OnResourcesChanged;
 

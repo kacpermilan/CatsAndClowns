@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8899492810513596172}
   - component: {fileID: 5199358832091068454}
+  - component: {fileID: -8973362654566010029}
   m_Layer: 2
   m_Name: BoosterCat
   m_TagString: Untagged
@@ -45,12 +46,41 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 592e58e3b302bf44599b0185358eca7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _name: Cat with a ball of jarn.
-  _description: I've got a ball of jarn!
-  _attackStrength: 10
-  _currentHealth: 50
-  _maxHealth: 50
-  Cost: 3
+--- !u!58 &-8973362654566010029
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1541304448695711427}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.7709692
 --- !u!1 &1782597085497612939
 GameObject:
   m_ObjectHideFlags: 0

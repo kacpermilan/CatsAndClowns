@@ -111,7 +111,7 @@ Transform:
   m_GameObject: {fileID: 3661882169238854976}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 637.9047, y: 155.48361, z: -7.656911}
+  m_LocalPosition: {x: 624.01, y: 155.48361, z: -7.656911}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -130,12 +130,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 591a65f3563bcb14dbbbcb0c4cc08985, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _name: Rainbow Cat
-  _description: Ima Firing My Lazer.
-  _attackStrength: 10
-  _currentHealth: 50
-  _maxHealth: 50
-  Cost: 3
+  LaserBulletPrefab: {fileID: 238351658070013894, guid: 348f9ab304aab5a40aa982b3564e6ef3, type: 3}
 --- !u!58 &8797434548205244062
 CircleCollider2D:
   m_ObjectHideFlags: 0

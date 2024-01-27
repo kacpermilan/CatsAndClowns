@@ -8,6 +8,6 @@ public class BoosterCat : APlayerEntity
 
     public override void DoAction()
     {
-        throw new System.NotImplementedException();
+        // Special ability -> buffing projectiles that pass through it
     }
 }
