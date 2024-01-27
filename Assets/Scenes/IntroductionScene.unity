@@ -403,8 +403,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 53.89
-  m_fontSizeBase: 53.89
+  m_fontSize: 40
+  m_fontSizeBase: 40
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -483,11 +483,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _dialogueLines:
-  - esfwegsgsge
-  - rgsrggsrg
-  - rdgrgrdgd
+  - Whew, it looks like I got here in time! I felt such a great disturbance in the
+    force that I started to fear the worst.
+  - The town looks calm... But wait, what is that ominous looking circus tent? I'd
+    better investigate.
+  - Well, well, well, what have we here? I was hoping you'd come, Cat Monk. It will
+    be my pleasure to defeat you and swallow your immortal soul.
+  - The Devil Clown! I knew only you would be capable of causing such disturbance.
+    I can't let you have this town. In the name of head pats and belly scratches,
+    I'll send you back whence you came!
   _dialogueLineIndex: 0
-  _typingSpeed: 0.05
+  _typingSpeed: 0.03
   _nextButtonObject: {fileID: 491278542}
   _nextButton: {fileID: 491278544}
   _dialogueText: {fileID: 599407602}
