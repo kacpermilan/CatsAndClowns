@@ -378,8 +378,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: New Text
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: d4bb9b2d65ce92f40887a37518448c39, type: 2}
+  m_sharedMaterial: {fileID: 1301573888847352886, guid: d4bb9b2d65ce92f40887a37518448c39, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -484,16 +484,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _dialogueLines:
   - Whew, it looks like I got here in time! I felt such a great disturbance in the
-    force that I started to fear the worst.
-  - The town looks calm... But wait, what is that ominous looking circus tent? I'd
-    better investigate.
+    force that I started to fear the worst The town looks calm... But wait, what
+    is that ominous looking circus tent? I'd better investigate.
   - Well, well, well, what have we here? I was hoping you'd come, Cat Monk. It will
     be my pleasure to defeat you and swallow your immortal soul.
   - The Devil Clown! I knew only you would be capable of causing such disturbance.
     I can't let you have this town. In the name of head pats and belly scratches,
     I'll send you back whence you came!
   _dialogueLineIndex: 0
-  _typingSpeed: 0.03
+  _typingSpeed: 0.02
   _nextButtonObject: {fileID: 491278542}
   _nextButton: {fileID: 491278544}
   _dialogueText: {fileID: 599407602}
