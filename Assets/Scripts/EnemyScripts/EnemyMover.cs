@@ -29,12 +29,12 @@ public class EnemyMover : MonoBehaviour
        RaycastHit2D hitCollider = Physics2D.Raycast(_cellCheckOriginPoint.position, -Vector2.right, _cellCheckRayLength, _whatIsTraversable);
         if (hitCollider.collider.TryGetComponent(out GridCell gridCell))
         {
-           bool IsPlayerOnGridCell = gridCell.GetPlayerEntityPlaced();
+           bool IsPlayerOnGridCell = gridCell.GetEntityInCell();
             if (IsPlayerOnGridCell)
             {
                 if (!_hasAttacked)
                 {
-                     gridCell.GetPlayerEntityPlaced().GetComponent<ABaseEntity>().TakeDamage(_damagePoints);
+                     gridCell.GetEntityInCell().GetComponent<ABaseEntity>().TakeDamage(_damagePoints);
                     _hasAttacked = true;
                 }
             }
