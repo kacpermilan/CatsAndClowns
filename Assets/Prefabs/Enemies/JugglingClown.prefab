@@ -51,7 +51,7 @@ MonoBehaviour:
   Description: A clown that juggles dangerous objects.
   AttackStrength: 8
   CurrentHealth: 60
-  MaxHealth: 60
+  MaxHealth: 50
 --- !u!114 &-1163620489554201641
 MonoBehaviour:
   m_ObjectHideFlags: 0

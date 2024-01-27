@@ -13,7 +13,7 @@ public class EnemyMover : MonoBehaviour
     [SerializeField] private LayerMask _whatIsTraversable;
 
     [Header("Attacking")]
-    [SerializeField] private float _damagePoints;
+    [SerializeField] private int _damagePoints;
 
     // getter and setter methods for hasAttack created, so that TurnManager can set _hasAttact to false if state is changed to 
     // action state AND so that it can start PLAYERCHOICES state if every spawned enemy has attacked
@@ -34,7 +34,7 @@ public class EnemyMover : MonoBehaviour
             {
                 if (!_hasAttacked)
                 {
-                     gridCell.GetPlayerEntityPlaced().GetComponent<Health>().TakeDamage(_damagePoints);
+                     gridCell.GetPlayerEntityPlaced().GetComponent<ABaseEntity>().TakeDamage(_damagePoints);
                     _hasAttacked = true;
                 }
             }

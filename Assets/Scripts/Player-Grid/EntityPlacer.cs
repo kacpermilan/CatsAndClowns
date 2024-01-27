@@ -39,7 +39,7 @@ public class EntityPlacer : MonoBehaviour
             //If player hovers over any grid cell
             if (_currentGridCell != null)
             {
-               IPlaceableEntity entity = _currentlySelectedEntity.GetComponent<IPlaceableEntity>();
+               APlayerEntity entity = _currentlySelectedEntity.GetComponent<APlayerEntity>();
                 
                 //If the cell mouse hovers over is placeable
                 if (_currentGridCell.IsPlaceable())

@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3550496149072456510}
   - component: {fileID: 5962122491667170132}
-  - component: {fileID: 5251914950973745727}
   m_Layer: 0
   m_Name: WizardCat
   m_TagString: Untagged
@@ -46,26 +45,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8af06dd3b51b0e24abb01a82ec925574, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Name: Cat Wizard
-  Description: A mystical cat with magical powers.
-  AttackStrength: 10
-  CurrentHealth: 50
-  MaxHealth: 50
-  _cost: 20
---- !u!114 &5251914950973745727
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4816522584871001893}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c8cfbb0062092dc40bae64b0b3e9027e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _currentHealth: 0
-  _maxHealth: 20
+  _name: Cat Wizard
+  _description: A mystical cat with magical powers.
+  _attackStrength: 10
+  _currentHealth: 50
+  _maxHealth: 50
+  Cost: 3
 --- !u!1 &6431342853669448333
 GameObject:
   m_ObjectHideFlags: 0
@@ -140,7 +125,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 5
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0.9056602, g: 0.24777485, b: 0.24777485, a: 1}
+  m_Color: {r: 0.90588236, g: 0.24705881, b: 0.87137973, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
