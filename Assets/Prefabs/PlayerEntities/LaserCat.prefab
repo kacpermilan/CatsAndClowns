@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4344736254192983042}
   - component: {fileID: 8967588663590908499}
+  - component: {fileID: 670467082109839397}
+  - component: {fileID: 8203140992031261868}
   m_Layer: 2
   m_Name: Visual
   m_TagString: Untagged
@@ -84,6 +86,39 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &670467082109839397
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1855071718170225199}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 922b6fd718e164d40b4d7d7f5d66d6e4, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &8203140992031261868
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1855071718170225199}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22c786924a2074144b157e1e0181b37c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3661882169238854976
 GameObject:
   m_ObjectHideFlags: 0
@@ -130,12 +165,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 591a65f3563bcb14dbbbcb0c4cc08985, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _name: Rainbow Cat
-  _description: Ima Firing My Lazer.
-  _attackStrength: 10
-  _currentHealth: 50
-  _maxHealth: 50
-  Cost: 3
 --- !u!58 &8797434548205244062
 CircleCollider2D:
   m_ObjectHideFlags: 0
