@@ -4,11 +4,16 @@ public abstract class ABaseEntity : MonoBehaviour
 {
     private Animator _animator;
 
-    public string Name { get; protected set; }
-    public string Description { get; protected set; }
-    public int AttackStrength { get; protected set; }
-    public int CurrentHealth { get; private set; }
-    public int MaxHealth { get; protected set; }
+    [SerializeField]
+    protected string Name;
+    [SerializeField]
+    protected string Description;
+    [SerializeField]
+   protected int AttackStrength;
+    [SerializeField]
+    protected int CurrentHealth;
+    [SerializeField]
+    protected int MaxHealth;
 
     protected ABaseEntity(string name, string description, int maxHealth, int attackStrength)
     {

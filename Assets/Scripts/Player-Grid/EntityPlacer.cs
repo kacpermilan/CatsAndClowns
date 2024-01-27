@@ -5,10 +5,20 @@ using UnityEngine;
 
 public class EntityPlacer : MonoBehaviour
 {
+    public static EntityPlacer Instance;
 
     [SerializeField] private LayerMask _whatIsPlaceable;
 
+    //This is the cell mouse is currently hovering over
     [SerializeField] private GridCell _currentGridCell;
+
+    //To implement -> this is Entity. It changes based on the card player chooses
+    [SerializeField] private Transform _currentlySelectedEntity;
+
+    private void Awake()
+    {
+        Instance = this;
+    }
 
     private void Start()
     {
@@ -17,7 +27,62 @@ public class EntityPlacer : MonoBehaviour
 
     private void InputManager_OnMouseClick(object sender, System.EventArgs e)
     {
-        _currentGridCell.OnMouseClick();
+        if (TurnsManager.Instance.GetCurrentGamePhase() != TurnsManager.State.PLAYERCHOICES)
+        {
+            //It means, currently it's not the phase when player can place entities on grid
+            return;
+        }
+
+        // if player choose any card
+        if (_currentlySelectedEntity != null)
+        {
+            //If player hovers over any grid cell
+            if (_currentGridCell != null)
+            {
+               IPlaceableEntity entity = _currentlySelectedEntity.GetComponent<IPlaceableEntity>();
+                
+                //If the cell mouse hovers over is placeable
+                if (_currentGridCell.IsPlaceable())
+                {
+                    // To implement -> here you'll also check if player have enough points to place selected entity
+                    if (PointsManager.Instance.GetCurrentResources() >= entity.Cost)
+                    {
+                        if (PointsManager.Instance.GetPointsLeftInCurrentTurn() >= 1)
+                        {
+                            PointsManager.Instance.DecreasePointsLeftInCurrentTurn();
+                            PointsManager.Instance.DecreaseResources(entity.Cost);
+                            //Place chosen entity on the cell you currently hover over
+                            _currentGridCell.OnMouseClick();
+                        }
+                        else
+                        {
+                            Debug.Log("You have no points left to use");
+                        }
+
+                    }
+                    else
+                    {
+                        Debug.Log("You have no money to place this entity");
+                    }
+                }
+                else
+                {
+                    Debug.Log("You cannot place anything here");
+                }
+
+               
+
+            }
+            else
+            {
+                Debug.Log("You cannot place anything here");
+            }
+        }
+        else
+        {
+            Debug.Log("No Entity Selected To Place");
+            //Display info about no entity selected to place
+        }
     }
 
     private void Update()
@@ -45,9 +110,11 @@ public class EntityPlacer : MonoBehaviour
         else
         {
             _currentGridCell = null;
-        }
-      
-        
-        
+        }                
+    }
+
+    public Transform GetCurrentlySelectedEntity()
+    {
+        return _currentlySelectedEntity;
     }
 }
