@@ -132,8 +132,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9c14970cd275134e9456d1dffc5cddc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damage: 0
-  _launchForce: 0
 --- !u!50 &2493515417068629591
 Rigidbody2D:
   serializedVersion: 4
@@ -193,8 +191,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.10121155, y: -0.18534851}
-  m_Size: {x: 19.729889, y: 19.729889}
+  m_Offset: {x: 0.041015625, y: -0.027679443}
+  m_Size: {x: 0.7662964, y: 0.7662964}
   m_Direction: 0
 --- !u!114 &6161572359726233316
 MonoBehaviour:
@@ -208,5 +206,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9c14970cd275134e9456d1dffc5cddc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damage: 0
-  _launchForce: 0
