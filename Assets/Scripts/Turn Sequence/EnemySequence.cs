@@ -1,8 +1,6 @@
-using System;
-using Unity.VisualScripting;
 using UnityEngine;
 
-public class EnemyMover : MonoBehaviour
+public class EnemySequence : MonoBehaviour
 {
     [SerializeField] private int _moveSpeed; // Assuming this is the number of tiles to move
 

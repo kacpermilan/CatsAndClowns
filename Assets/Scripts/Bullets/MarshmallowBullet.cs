@@ -37,5 +37,11 @@ public class MarshmallowBullet : MonoBehaviour
             enemy.TakeDamage(_damage);
             Destroy(gameObject);
         }
+
+        if (collision.TryGetComponent(out EnemyBoss boss))
+        {
+            boss.TakeDamage(_damage);
+            Destroy(gameObject);
+        }
     }
 }

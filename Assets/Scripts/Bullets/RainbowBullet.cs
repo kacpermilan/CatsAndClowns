@@ -29,5 +29,11 @@ public class RainbowBullet : MonoBehaviour
         {
             enemy.TakeDamage(_damage);
         }
+
+        if (collision.TryGetComponent(out EnemyBoss boss))
+        {
+            boss.TakeDamage(_damage);
+            Destroy(gameObject);
+        }
     }
 }

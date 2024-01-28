@@ -1,4 +1,6 @@
 using System;
+using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerUnitActions : MonoBehaviour
@@ -23,8 +25,18 @@ public class PlayerUnitActions : MonoBehaviour
     {
         if (e.CurrentGameState == GameMaster.GameState.PlayerAttack)
         {
-            PerformActionsOnPlayerUnits();
+            StartCoroutine(PerformActionsAndChangeState());
         }
+    }
+
+    private IEnumerator PerformActionsAndChangeState()
+    {
+        PerformActionsOnPlayerUnits();
+
+        yield return new WaitForSeconds(1f);
+        yield return new WaitUntil(() => GameObject.FindGameObjectsWithTag("ProjectileTag").Length == 0);
+
+        GameMaster.Instance.SetCurrentState(GameMaster.GameState.EnemySequence);
     }
 
     private void PerformActionsOnPlayerUnits()
