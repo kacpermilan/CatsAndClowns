@@ -1,3 +1,5 @@
+using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public abstract class ABaseEntity : MonoBehaviour
@@ -25,7 +27,7 @@ public abstract class ABaseEntity : MonoBehaviour
 
     private void Awake()
     {
-        //_animator = GetComponent<Animator>();
+        _animator = GetComponentInChildren<Animator>();
     }
 
     public void TakeDamage(int incomingDamage)
@@ -38,9 +40,18 @@ public abstract class ABaseEntity : MonoBehaviour
         if (_currentHealth <= 0)
         {
             // SoundManager.PlayDeathSound(this);
-            //_animator.SetTrigger("Die");
-            Destroy(gameObject);
+            _animator.SetTrigger("Die");
+            StartCoroutine(WaitForDeathAnimation());
         }
+    }
+
+    private IEnumerator WaitForDeathAnimation()
+    {
+        // Wait for the animation to play
+        yield return new WaitForSeconds(1f); // Replace 1f with the actual length of your 'Die' animation
+
+        // Then destroy the game object
+        Destroy(gameObject);
     }
 
     public float GetHealthNormalized() => (float)_currentHealth / _maxHealth;
