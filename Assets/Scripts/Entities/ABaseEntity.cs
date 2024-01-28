@@ -1,10 +1,9 @@
 using System.Collections;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public abstract class ABaseEntity : MonoBehaviour
 {
-    private Animator _animator;
+    protected Animator _animator;
 
     protected string _name;
     
