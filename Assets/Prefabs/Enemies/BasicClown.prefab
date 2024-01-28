@@ -214,11 +214,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb133807fb4e4d0478c4afa0e4ac3c3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _distance: 10
+  _distance: -1.25
   _whatIsPlayerBoss:
     serializedVersion: 2
     m_Bits: 256
-  _damagePoints: -1.25
+  _damagePoints: 10
 --- !u!1001 &4792125755696270109
 PrefabInstance:
   m_ObjectHideFlags: 0

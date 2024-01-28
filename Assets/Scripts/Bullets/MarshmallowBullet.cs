@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class MarshmallowBullet : MonoBehaviour
@@ -35,13 +36,35 @@ public class MarshmallowBullet : MonoBehaviour
         if (collision.TryGetComponent(out AEnemyEntity enemy))
         {
             enemy.TakeDamage(_damage);
-            Destroy(gameObject);
+
+            transform.rotation = Quaternion.Euler(0, 0, -90);
+            StartCoroutine(BulletDeathAnimation(gameObject, 2f));
         }
 
         if (collision.TryGetComponent(out EnemyBoss boss))
         {
             boss.TakeDamage(_damage);
-            Destroy(gameObject);
+
+            transform.rotation = Quaternion.Euler(0, 0, -90);
+            StartCoroutine(BulletDeathAnimation(gameObject, 2f));
         }
+    }
+
+    private IEnumerator BulletDeathAnimation(GameObject obj, float delay)
+    {
+        Collider2D cd = obj.GetComponent<Collider2D>();
+
+        Rigidbody2D rb = obj.GetComponent<Rigidbody2D>();
+        if (rb != null)
+        {
+            rb.velocity = new Vector2(-0.3f, -1f);
+            rb.gravityScale = 1;
+        }
+
+        yield return new WaitForSeconds(0.075f);
+        cd.enabled = false;
+        yield return new WaitForSeconds(delay - 0.075f);
+
+        Destroy(obj);
     }
 }
