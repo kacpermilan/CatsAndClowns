@@ -1091,90 +1091,6 @@ MonoBehaviour:
   m_DeselectOnBackgroundClick: 1
   m_PointerBehavior: 0
   m_CursorLockBehavior: 0
---- !u!1 &399476424
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 399476426}
-  - component: {fileID: 399476425}
-  m_Layer: 0
-  m_Name: bulletsMarshmallow (1)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!212 &399476425
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 399476424}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 40be8580e742da24d9efc94ee404f183, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 30.000002, y: 30.000002}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
---- !u!4 &399476426
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 399476424}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 375.6152, y: 74.81497, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &406311879
 GameObject:
   m_ObjectHideFlags: 0
@@ -1759,7 +1675,7 @@ GameObject:
   m_Component:
   - component: {fileID: 507059754}
   m_Layer: 0
-  m_Name: ---ENEMY TURN---
+  m_Name: ---TURN SEQUENCE---
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2115,7 +2031,7 @@ GameObject:
   m_Component:
   - component: {fileID: 587144918}
   m_Layer: 0
-  m_Name: ---GAME FLOW---
+  m_Name: ---MANAGERS---
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4500,7 +4416,7 @@ GameObject:
   - component: {fileID: 1183296085}
   - component: {fileID: 1183296084}
   m_Layer: 0
-  m_Name: EnemySpawner
+  m_Name: EnemySequence
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4528,7 +4444,6 @@ MonoBehaviour:
     _numbersOfEnemiesToSpawn: 6
     _timeBetweenEnemiesSpawning: 4
   _currentWaveIndex: 0
-  _spawnState: 2
   _spawnPoints:
   - {fileID: 307930742}
   - {fileID: 1052122151}
@@ -4561,7 +4476,7 @@ GameObject:
   - component: {fileID: 1206987023}
   - component: {fileID: 1206987022}
   m_Layer: 0
-  m_Name: TurnsManager
+  m_Name: GameMaster
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4626,8 +4541,8 @@ Transform:
   m_GameObject: {fileID: 1288929804}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.63, y: -0.22, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -2.6211, y: -0.22, z: 0}
+  m_LocalScale: {x: 1.001, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1428809826}
@@ -6724,20 +6639,19 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 519420032}
-  - {fileID: 1542056928}
-  - {fileID: 2111069288}
   - {fileID: 447664243}
-  - {fileID: 1097337519}
   - {fileID: 812201263}
-  - {fileID: 364123734}
+  - {fileID: 1428809826}
   - {fileID: 507059754}
+  - {fileID: 2111069288}
+  - {fileID: 462800418}
   - {fileID: 1183296085}
   - {fileID: 587144918}
   - {fileID: 1206987023}
-  - {fileID: 213009253}
-  - {fileID: 399476426}
-  - {fileID: 1428809826}
-  - {fileID: 462800418}
+  - {fileID: 364123734}
+  - {fileID: 1542056928}
   - {fileID: 431778247}
+  - {fileID: 1097337519}
+  - {fileID: 213009253}
   - {fileID: 496253853}
   - {fileID: 873109331}
