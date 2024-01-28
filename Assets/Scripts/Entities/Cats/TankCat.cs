@@ -1,7 +1,7 @@
 public class TankCat : APlayerEntity
 {
     public TankCat()
-        : base("Warrior Cat", "Tarcza szmato.", maxHealth: 3, attackStrength: 1, cost: 1)
+        : base("Warrior Cat", "Tarcza szmato.", maxHealth: 3, attackStrength: 0, cost: 3)
     {
     }
 
