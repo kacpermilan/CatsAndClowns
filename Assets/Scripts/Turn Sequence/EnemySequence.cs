@@ -18,6 +18,7 @@
         [SerializeField] 
         private GameObject _spawnPointMarkerPrefab;
 
+
         private void Start()
         {
             GameMaster.Instance.OnCurrentStateChange += OnCurrentStateChange;
