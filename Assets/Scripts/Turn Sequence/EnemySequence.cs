@@ -90,32 +90,34 @@
                 AEnemyEntity enemy = cell.GetEntityInCell()?.GetComponent<AEnemyEntity>();
                 if (enemy != null)
                 {
-                    MoveEnemyToLeft(enemy, cell);
+                    StartCoroutine(MoveEnemy(enemy, cell));
                 }
             }
         }
 
-        private void MoveEnemyToLeft(AEnemyEntity enemy, GridCell currentCell)
+        private IEnumerator MoveEnemy(AEnemyEntity enemy, GridCell startCell)
         {
-            int movement = enemy.movementSpeed; // Assuming 'Movement' is an attribute of AEnemyEntity
+            GridCell currentCell = startCell;
 
-            for (int i = 0; i < movement; i++)
+            for (int i = 0; i < enemy.movementSpeed; i++)
             {
                 Vector2 leftPosition = GetLeftNeighbourPosition(currentCell.transform.position);
                 GridCell targetCell = FindClosestCell(leftPosition);
 
                 if (targetCell == null || targetCell.GetEntityInCell() != null)
                 {
-                    continue;
+                    break; // Stop moving if next cell is occupied or doesn't exist
                 }
 
-                StartCoroutine(MoveToCell(enemy.gameObject, targetCell.transform.position, 1f)); // 1f is the duration of the movement
+                yield return StartCoroutine(MoveToCell(enemy.gameObject, targetCell.transform.position, 1f));
                 currentCell.PlaceEntityInCell(null);
                 targetCell.PlaceEntityInCell(enemy.transform);
+                currentCell = targetCell; // Update current cell for next iteration
 
                 CheckAndDamageNeighboringPlayer(targetCell, enemy.attackStrength);
             }
         }
+
 
         private IEnumerator MoveToCell(GameObject enemy, Vector3 targetPosition, float duration)
         {
@@ -191,7 +193,7 @@
 
         private Vector2 GetLeftNeighbourPosition(Vector2 cellPosition)
         {
-            float meanCellDistance = 1f;
+            float meanCellDistance = 1.5f;
             return new Vector2(cellPosition.x - meanCellDistance, cellPosition.y);
         }
 

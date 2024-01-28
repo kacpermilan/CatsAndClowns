@@ -70,7 +70,7 @@ public class PlayerTurn : MonoBehaviour
             if (result.gameObject.TryGetComponent(out Card card))
             {
                 _currentlySelectedEntity = card.GetEntityInThisCard();
-                Debug.Log("Card " + card.gameObject.name);
+                // Debug.Log("Card " + card.gameObject.name);
                 break;
             }
         }
