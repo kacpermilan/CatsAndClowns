@@ -7,12 +7,12 @@ public abstract class ABaseEntity : MonoBehaviour
     protected string _name;
     
     protected string _description;
-    
-    protected int _attackStrength;
 
     protected int _currentHealth;
 
     protected int _maxHealth;
+
+    public int attackStrength { get; private set; }
 
     protected ABaseEntity(string name, string description, int maxHealth, int attackStrength)
     {
@@ -20,7 +20,7 @@ public abstract class ABaseEntity : MonoBehaviour
         _description = description;
         _maxHealth = maxHealth;
         _currentHealth = maxHealth;
-        _attackStrength = attackStrength;
+        this.attackStrength = attackStrength;
     }
 
     private void Awake()

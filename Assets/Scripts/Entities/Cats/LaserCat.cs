@@ -26,7 +26,7 @@ public class LaserCat : APlayerEntity
         }
 
         GameObject bullet = Instantiate(LaserBulletPrefab, transform.position, Quaternion.identity);
-        bullet.GetComponent<RainbowBullet>().LaunchBullet(_attackStrength, _launchForce);
+        bullet.GetComponent<RainbowBullet>().LaunchBullet(attackStrength, _launchForce);
         OnCooldown = true;
     }
 }

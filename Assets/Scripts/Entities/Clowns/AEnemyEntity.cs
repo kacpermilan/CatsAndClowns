@@ -1,14 +1,12 @@
-using UnityEngine;
-
 public abstract class AEnemyEntity : ABaseEntity
 {
-    private int _movementSpeed;
-    private int _attackRange;
+    public int movementSpeed { get; private set; }
+    public int attackRange { get; private set; }
 
     protected AEnemyEntity(string name, string description, int health, int attackStrength, int movementSpeed, int attackRange)
         : base(name, description, health, attackStrength)
     {
-        _movementSpeed = movementSpeed;
-        _attackRange = attackRange;
+        this.movementSpeed = movementSpeed;
+        this.attackRange = attackRange;
     }
 }
