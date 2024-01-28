@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4420710527780345516}
   - component: {fileID: 7949165787485326031}
+  - component: {fileID: -1913228961596076400}
+  - component: {fileID: 5676270845280853317}
   m_Layer: 0
   m_Name: JugglingClown
   m_TagString: Untagged
@@ -46,6 +48,58 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 441fb87ee664cd145976951396c91cb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!70 &-1913228961596076400
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4100577758871702340}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.018826723, y: -0.025102317}
+  m_Size: {x: 0.93301344, y: 1.5899016}
+  m_Direction: 0
+--- !u!114 &5676270845280853317
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4100577758871702340}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb133807fb4e4d0478c4afa0e4ac3c3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _distance: -1.25
+  _whatIsPlayerBoss:
+    serializedVersion: 2
+    m_Bits: 256
+  _damagePoints: 10
 --- !u!1 &4489737082531178821
 GameObject:
   m_ObjectHideFlags: 0

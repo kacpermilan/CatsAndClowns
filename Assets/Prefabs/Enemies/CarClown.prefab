@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3368543588971588133}
   - component: {fileID: 9069969274932119997}
+  - component: {fileID: 8458075032969144556}
+  - component: {fileID: 2706403764432961385}
   m_Layer: 0
   m_Name: CarClown
   m_TagString: Untagged
@@ -26,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 3609102096447387726}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 637.9047, y: 155.48361, z: -7.656911}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -46,6 +48,58 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6ae2484a455ab44eb95d019e3c96626, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!70 &8458075032969144556
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3609102096447387726}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.007223308, y: 0.0054175854}
+  m_Size: {x: 1.1581537, y: 1.1834352}
+  m_Direction: 0
+--- !u!114 &2706403764432961385
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3609102096447387726}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb133807fb4e4d0478c4afa0e4ac3c3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _distance: -1.25
+  _whatIsPlayerBoss:
+    serializedVersion: 2
+    m_Bits: 256
+  _damagePoints: 10
 --- !u!1 &8166951034244692461
 GameObject:
   m_ObjectHideFlags: 0
@@ -72,8 +126,8 @@ Transform:
   m_GameObject: {fileID: 8166951034244692461}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 7.656911}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.0756, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3368543588971588133}
@@ -120,7 +174,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0.87058824, g: 0.2, b: 0.08235294, a: 1}
+  m_Color: {r: 0.87058824, g: 0.10844935, b: 0.08235294, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
