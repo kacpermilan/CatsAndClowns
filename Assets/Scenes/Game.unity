@@ -953,8 +953,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Armor Car - 2
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: d4bb9b2d65ce92f40887a37518448c39, type: 2}
+  m_sharedMaterial: {fileID: 1301573888847352886, guid: d4bb9b2d65ce92f40887a37518448c39, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -978,8 +978,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 23
-  m_fontSizeBase: 23
+  m_fontSize: 16.39
+  m_fontSizeBase: 16.39
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -2143,8 +2143,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Laser Cat - 3
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: d4bb9b2d65ce92f40887a37518448c39, type: 2}
+  m_sharedMaterial: {fileID: 1301573888847352886, guid: d4bb9b2d65ce92f40887a37518448c39, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2168,8 +2168,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 23
-  m_fontSizeBase: 23
+  m_fontSize: 16.39
+  m_fontSizeBase: 16.39
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -3699,8 +3699,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Cannon Cat - 1
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: d4bb9b2d65ce92f40887a37518448c39, type: 2}
+  m_sharedMaterial: {fileID: 1301573888847352886, guid: d4bb9b2d65ce92f40887a37518448c39, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -3724,8 +3724,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 22
-  m_fontSizeBase: 22
+  m_fontSize: 16.39
+  m_fontSizeBase: 16.39
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -7220,8 +7220,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Bread Cat - 1
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: d4bb9b2d65ce92f40887a37518448c39, type: 2}
+  m_sharedMaterial: {fileID: 1301573888847352886, guid: d4bb9b2d65ce92f40887a37518448c39, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -7245,8 +7245,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 23
-  m_fontSizeBase: 23
+  m_fontSize: 16.39
+  m_fontSizeBase: 16.39
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -7318,4 +7318,3 @@ SceneRoots:
   - {fileID: 873109331}
   - {fileID: 1955013001}
   - {fileID: 1348275492}
-  - {fileID: 1955013001}
