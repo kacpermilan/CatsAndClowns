@@ -129,6 +129,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6728253426271775773}
   - component: {fileID: 6275863339447152960}
+  - component: {fileID: 16762523893662313}
   m_Layer: 0
   m_Name: BasicClown
   m_TagString: Untagged
@@ -165,6 +166,41 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ada53fccc7041aa4f845f62fb3df7a94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!70 &16762523893662313
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7244764738261290577}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.059631348, y: 0.026489258}
+  m_Size: {x: 0.8046875, y: 1.5033875}
+  m_Direction: 0
 --- !u!1001 &4792125755696270109
 PrefabInstance:
   m_ObjectHideFlags: 0
