@@ -18,6 +18,20 @@ public class EnemySequence : MonoBehaviour
     private GameObject _spawnPointMarkerPrefab;
 
 
+    private bool _enemySequenceInProgress = false;
+    private float _enemySequenceEndTime = 0f;
+    private const float ENEMY_SEQUENCE_DURATION = 2.5f;
+    
+    private void Update()
+    {
+        if (_enemySequenceInProgress && Time.time >= _enemySequenceEndTime)
+        {
+            _enemySequenceInProgress = false;
+            GameMaster.Instance.SetCurrentState(GameMaster.GameState.PlayerTurn);
+        }
+    }
+
+
     private void Start()
     {
         GameMaster.Instance.OnCurrentStateChange += OnCurrentStateChange;
@@ -44,7 +58,9 @@ public class EnemySequence : MonoBehaviour
             MoveExistingUnits();
             SpawnEnemyFromWave();
             PrepareNewWave();
-            GameMaster.Instance.SetCurrentState(GameMaster.GameState.PlayerTurn);
+
+            _enemySequenceEndTime = Time.time + ENEMY_SEQUENCE_DURATION;
+            _enemySequenceInProgress = true;
         }
     }
 
