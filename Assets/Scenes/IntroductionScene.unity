@@ -234,7 +234,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 400, y: -94.175}
+  m_AnchoredPosition: {x: 629.39, y: -158}
   m_SizeDelta: {x: 215.1531, y: 70.482}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &491278544
@@ -353,8 +353,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -16.549622, y: 31.1831}
-  m_SizeDelta: {x: -580.07, y: -128.3882}
+  m_AnchoredPosition: {x: -53.433, y: -7.021}
+  m_SizeDelta: {x: -568.649, y: -50.796}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &599407602
 MonoBehaviour:
@@ -484,13 +484,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _dialogueLines:
   - Whew, it looks like I got here in time! I felt such a great disturbance in the
-    force that I started to fear the worst The town looks calm... But wait, what
+    force that I started to fear the worst. The town looks calm... But wait, what
     is that ominous looking circus tent? I'd better investigate.
   - Well, well, well, what have we here? I was hoping you'd come, Cat Monk. It will
     be my pleasure to defeat you and swallow your immortal soul.
-  - The Devil Clown! I knew only you would be capable of causing such disturbance.
-    I can't let you have this town. In the name of head pats and belly scratches,
-    I'll send you back whence you came!
+  - The Devil Clown! I knew only you would be capable of that. I can't let you have
+    this town. In the name of head pats and belly scratches, I'll send you back whence
+    you came!
   _dialogueLineIndex: 0
   _typingSpeed: 0.02
   _nextButtonObject: {fileID: 491278542}
@@ -498,7 +498,7 @@ MonoBehaviour:
   _dialogueText: {fileID: 599407602}
   _mnichPortrait: {fileID: 1098120044}
   _satanPortrait: {fileID: 1015416360}
-  _isPlayerTalking: 0
+  _isPlayerTalking: 1
 --- !u!4 &841240959
 Transform:
   m_ObjectHideFlags: 0
@@ -552,8 +552,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -259}
-  m_SizeDelta: {x: 1527.2852, y: 308.6228}
+  m_AnchoredPosition: {x: 0, y: -209.49013}
+  m_SizeDelta: {x: 1650.326, y: 353.86}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &855980357
 MonoBehaviour:
@@ -627,7 +627,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1472, y: -46}
+  m_AnchoredPosition: {x: 1472.0007, y: -46}
   m_SizeDelta: {x: 250.04858, y: 258.83}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1015416362
@@ -804,7 +804,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 56, y: -46}
+  m_AnchoredPosition: {x: 71.46, y: -46}
   m_SizeDelta: {x: 250.04858, y: 258.83}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1098120046
