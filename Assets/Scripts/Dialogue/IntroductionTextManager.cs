@@ -23,6 +23,9 @@ public class IntroductionTextManager : MonoBehaviour
     [SerializeField] private State _state = State.CHECKING;
     private void Start()
     {
+
+        SoundManager.Instance.IsMusicPlaying = false;
+
         _introductionText.text = string.Empty;
 
         _startButton.onClick.AddListener(() =>
