@@ -26,6 +26,7 @@ public class PlayerTurn : MonoBehaviour
 
     private void Start()
     {
+        GameMaster.Instance.OnCurrentStateChange += OnCurrentStateChange;
         InputManager.Instance.OnMouseClick += InputManager_OnMouseClick;
         InputManager.Instance.OnGetRemoveObject += InstanceOnOnGetRemoveObject;
     }
@@ -44,6 +45,11 @@ public class PlayerTurn : MonoBehaviour
             SearchForCards();
         }
               
+    }
+
+    private void OnCurrentStateChange(object sender, GameMaster.OnCurrentStateChangeEventArgs e)
+    {
+        ResourceManager.Instance.IncreaseResources(1);
     }
 
     private void SearchForCards()
