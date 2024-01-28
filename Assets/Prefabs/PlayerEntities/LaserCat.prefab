@@ -130,7 +130,7 @@ GameObject:
   - component: {fileID: 5314491782050715244}
   - component: {fileID: 8088837901666020322}
   - component: {fileID: 8797434548205244062}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: LaserCat
   m_TagString: Untagged
   m_Icon: {fileID: 0}

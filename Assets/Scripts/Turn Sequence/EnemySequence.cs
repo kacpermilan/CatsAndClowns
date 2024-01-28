@@ -1,76 +1,107 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemySequence : MonoBehaviour
 {
-    [SerializeField] private int _moveSpeed; // Assuming this is the number of tiles to move
+    public static EnemySequence Instance;
 
-    [Header("Grid Cells check")]
-    [SerializeField] private Transform _cellCheckOriginPoint;
-    [SerializeField] private float _cellCheckRayLength;
-    [SerializeField] private LayerMask _whatIsTraversable;
+    [SerializeField] private EnemyWave[] _enemyWaves;
 
-    [Header("Attacking")]
-    [SerializeField] private int _damagePoints;
+    [SerializeField] private int _currentWaveIndex;
 
-    private bool _hasAttacked;
 
-    [SerializeField]
-    private float _tileWidth = 10.0f; // Adjust this based on your grid size
+    [SerializeField] private Transform[] _spawnPoints;
 
-    private void Awake() => GameMaster.Instance.OnCurrentStateChange += OnCurrentStateChange;
+    // So that we can iterate through all the spawned enemies and only change SpawningState to AWAITINGSPAWN and
+    // GameState to PLAYERCHOICES when all of the currently spawn enemies HasAttacked (ememyMover) and 
+    // and set it back to false when ACTIONSTATE starts again.
+    
+    //We also need a way to remove spawned enemies from the list, when ther're destroyed
+
+    [SerializeField] private List<Transform> _spawnedEnemies = new();
+
+    private GridManager gridManager;
+
+
+    private void Start()
+    {
+        GameMaster.Instance.OnCurrentStateChange += OnCurrentStateChange;
+        gridManager = FindObjectOfType<GridManager>();
+    }
+
+    private void OnDestroy()
+    {
+        if (GameMaster.Instance != null)
+        {
+            GameMaster.Instance.OnCurrentStateChange -= OnCurrentStateChange;
+        }
+    }
+
     private void OnCurrentStateChange(object sender, GameMaster.OnCurrentStateChangeEventArgs e)
     {
         if (e.CurrentGameState == GameMaster.GameState.EnemySequence)
         {
-            CheckIfCanMove();
+            GameMaster.Instance.SetCurrentState(GameMaster.GameState.PlayerTurn);
         }
     }
 
-    private void CheckIfCanMove()
-    {
-        RaycastHit2D hitCollider = Physics2D.Raycast(_cellCheckOriginPoint.position, -Vector2.right, _cellCheckRayLength, _whatIsTraversable);
-        if (hitCollider.collider != null && hitCollider.collider.TryGetComponent(out GridCell gridCell))
-        {
-            bool isPlayerOnGridCell = gridCell.GetEntityInCell();
-            if (isPlayerOnGridCell)
-            {
-                if (!_hasAttacked)
-                {
-                    gridCell.GetEntityInCell().GetComponent<ABaseEntity>().TakeDamage(_damagePoints);
-                    _hasAttacked = true;
-                }
-            }
-            else
-            {
-                MoveEnemy();
-            }
-        }
-        else
-        {
-            //placeholder to stop null reference exception
-            transform.position = Vector3.zero;
-        }
-    }
+    //private void Update()
+    //{
 
-    private void MoveEnemy()
-    {
-        // Assuming each tile is directly to the left of the current position
-        Vector3 nextPosition = transform.position + new Vector3(-_tileWidth, 0, 0);
-        transform.position = Vector3.MoveTowards(transform.position, nextPosition, _moveSpeed * Time.deltaTime);
-    }
+    //    if (GameMaster.Instance.GetCurrentGamePhase() == GameMaster.GameState.EnemySequence)
+    //    {
+    //        if (_spawnState == SpawningState.WAITING)
+    //        {
+    //            for (int i = 0; i < _spawnedEnemies.Count; i++)
+    //            {
+    //                if (!_spawnedEnemies[i].GetComponent<EnemyMove>().HasAttacked())
+    //                {
+    //                    return;
+    //                }
 
-    public bool HasAttacked()
-    {
-        return _hasAttacked;
-    }
+    //                //needs to do the bellow only once there are no EnemyMovers which !HasAttacked
+    //                //Not sure how to implement it. My brain is dead at this point xD
+    //                _spawnState = SpawningState.AWAITINGTOSPAWN;
+    //                GameMaster.Instance.SetCurrentState(GameMaster.GameState.PlayerTurn);
+    //            }
+    //        }
 
-    public void ResetHasAttacked()
-    {
-        _hasAttacked = false;
-    }
+    //        if (_spawnState != SpawningState.SPAWNING)
+    //        {
+    //            StartCoroutine(SpawningRoutine());
+    //        }
+    //    }
+    //}
 
-    private void OnDrawGizmos()
+    //private IEnumerator SpawningRoutine()
+    //{
+    //    _spawnState = SpawningState.SPAWNING;
+
+    //    for (int i = 0; i < _enemyWaves[_currentWaveIndex].GetNumberOfEnemiesToSpawn(); i++)
+    //    {
+    //        SpawnEnemyFromWave();
+    //        yield return new WaitForSeconds(0);
+    //    }
+
+    //    //test
+    //    _spawnState = SpawningState.WAITING;
+    //    _currentWaveIndex++;
+    //    //GameMaster.Instance.SetCurrentState(GameMaster.GameState.PLAYERCHOICES);
+    //}
+
+    private void SpawnEnemyFromWave()
     {
-        Gizmos.DrawLine(_cellCheckOriginPoint.position, new Vector2(_cellCheckOriginPoint.position.x - _cellCheckRayLength, _cellCheckOriginPoint.position.y));
+        // I choose to get a random enemy from a selection of enemies in that particular wave
+        //but if you want to change that, every wave have a method to return an enemy with selected index
+        // Enemies spawn at random position from 4 possible spawn points. To make it different, and let player know which lines
+        //the enemies will spawn at first, it will require way more work. So, here's the basics
+
+        //Spawn points will be hidden under graphics element with higher layer order.
+        //It's done such way, so that we can actually get the lines of first enemies, once they're spawn, but not moving,
+        //If we have time to implement it
+        Transform enemyInstance = Instantiate(_enemyWaves[_currentWaveIndex].GetRandomEnemy(), _spawnPoints[UnityEngine.Random.Range(0, _spawnPoints.Length)].position, Quaternion.identity);
+        _spawnedEnemies.Add(enemyInstance);
+
     }
 }

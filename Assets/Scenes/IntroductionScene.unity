@@ -1392,8 +1392,8 @@ MonoBehaviour:
     would''ve surrenered to them long ago hadn''t it been for...'
   - ...the cats.
   _currentSentenceIndex: 0
-  _typingSpeed: 0.04
-  _timeBetweenNextSentences: 2
+  _typingSpeed: 0.05
+  _timeBetweenNextSentences: 2.5
   _state: 1
 --- !u!1 &1937515461
 GameObject:
