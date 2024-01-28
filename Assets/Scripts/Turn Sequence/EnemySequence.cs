@@ -18,6 +18,7 @@
         [SerializeField] 
         private GameObject _spawnPointMarkerPrefab;
 
+
         private void Start()
         {
             GameMaster.Instance.OnCurrentStateChange += OnCurrentStateChange;
@@ -109,8 +110,14 @@
                     continue;
                 }
 
-                StartCoroutine(MoveToCell(enemy.gameObject, targetCell.transform.position, 1f)); // 1f is the duration of the movement
-                currentCell.PlaceEntityInCell(null);
+                       
+                 StartCoroutine(MoveToCell(enemy.gameObject, targetCell.transform.position, 1f)); // 1f is the duration of the movement
+            
+            
+
+
+            currentCell.PlaceEntityInCell(null);
+
                 targetCell.PlaceEntityInCell(enemy.transform);
 
                 CheckAndDamageNeighboringPlayer(targetCell, enemy.attackStrength);
