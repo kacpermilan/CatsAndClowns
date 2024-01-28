@@ -19,6 +19,6 @@ public class BasicCat : APlayerEntity
         }
 
         GameObject bullet = Instantiate(MarshmallowBulletPrefab, transform.position, Quaternion.identity);
-        bullet.GetComponent<MarshmallowBullet>().LaunchBullet(_attackStrength, _launchForce);
+        bullet.GetComponent<MarshmallowBullet>().LaunchBullet(attackStrength, _launchForce);
     }
 }

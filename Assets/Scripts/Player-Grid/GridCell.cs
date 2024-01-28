@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using UnityEngine;
 
 public class GridCell : MonoBehaviour
@@ -28,6 +29,7 @@ public class GridCell : MonoBehaviour
 
     public bool IsPlaceable() => !_isEnemyCell && _entityInCell == null;
 
+    [CanBeNull]
     public Transform GetEntityInCell() => _entityInCell;
 
     public void PlaceEntityInCell(Transform entity) => _entityInCell = entity;
