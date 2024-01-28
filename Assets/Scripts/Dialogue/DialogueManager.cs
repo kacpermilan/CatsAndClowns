@@ -8,6 +8,8 @@ using UnityEngine.UI;
 
 public class DialogueManager : MonoBehaviour
 {
+    public static DialogueManager Instance;
+
     [Header("Typing Parameters")]
     [TextArea(2,4)]
     [SerializeField] private string[] _dialogueLines;
@@ -24,6 +26,12 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private GameObject _satanPortrait;
     [SerializeField] private bool _isPlayerTalking;
 
+    private bool _isPlayingDialogue;
+
+    private void Awake()
+    {
+        Instance = this;
+    }
     private void Start()
     {
         _dialogueText.text = string.Empty;
@@ -43,11 +51,16 @@ public class DialogueManager : MonoBehaviour
             }
         });
 
-        StartCoroutine(TypingRoutine());
+        
     }
 
     private void Update()
     {
+        if ( _isPlayingDialogue)
+        {
+            StartCoroutine(TypingRoutine());
+            _isPlayingDialogue = false;
+        }
         if (_isPlayerTalking)
         {
             _satanPortrait.SetActive(false);
@@ -68,7 +81,13 @@ public class DialogueManager : MonoBehaviour
             _dialogueText.text += c;
             yield return new WaitForSeconds(_typingSpeed);
         }
+
         _nextButtonObject?.SetActive(true);
 
+    }
+
+    public void SetIsPlayingDialogue(bool isPlaying)
+    {
+        _isPlayingDialogue = isPlaying;
     }
 }
