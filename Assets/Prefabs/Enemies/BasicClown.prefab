@@ -129,7 +129,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6728253426271775773}
   - component: {fileID: 6275863339447152960}
-  - component: {fileID: 4143746535387990854}
   m_Layer: 0
   m_Name: BasicClown
   m_TagString: Untagged
@@ -166,26 +165,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ada53fccc7041aa4f845f62fb3df7a94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &4143746535387990854
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7244764738261290577}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5402b589f2c30c64fb87807be45755c1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _moveSpeed: 4
-  _cellCheckOriginPoint: {fileID: 9080346880426857742}
-  _cellCheckRayLength: -0.71
-  _whatIsTraversable:
-    serializedVersion: 2
-    m_Bits: 64
-  _damagePoints: 10
-  _tileWidth: 10
 --- !u!1001 &4792125755696270109
 PrefabInstance:
   m_ObjectHideFlags: 0

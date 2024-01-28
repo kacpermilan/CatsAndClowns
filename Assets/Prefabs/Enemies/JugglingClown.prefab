@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4420710527780345516}
   - component: {fileID: 7949165787485326031}
-  - component: {fileID: -1163620489554201641}
   m_Layer: 0
   m_Name: JugglingClown
   m_TagString: Untagged
@@ -47,30 +46,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 441fb87ee664cd145976951396c91cb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _name: Juggling Clown
-  _description: A clown that juggles dangerous objects.
-  _attackStrength: 8
-  _currentHealth: 60
-  _maxHealth: 60
---- !u!114 &-1163620489554201641
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4100577758871702340}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5402b589f2c30c64fb87807be45755c1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _moveSpeed: 4
-  _cellCheckOriginPoint: {fileID: 6029797537356102554}
-  _cellCheckRayLength: -0.71
-  _whatIsTraversable:
-    serializedVersion: 2
-    m_Bits: 64
-  _damagePoints: 5
 --- !u!1 &4489737082531178821
 GameObject:
   m_ObjectHideFlags: 0

@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3368543588971588133}
   - component: {fileID: 9069969274932119997}
-  - component: {fileID: -7013181966017716272}
   m_Layer: 0
   m_Name: CarClown
   m_TagString: Untagged
@@ -47,30 +46,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6ae2484a455ab44eb95d019e3c96626, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _name: Clown Car
-  _description: How do you call a group of clowns? Car of Clowns.
-  _attackStrength: 8
-  _currentHealth: 60
-  _maxHealth: 60
---- !u!114 &-7013181966017716272
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3609102096447387726}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5402b589f2c30c64fb87807be45755c1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _moveSpeed: 4
-  _cellCheckOriginPoint: {fileID: 2259634675368137427}
-  _cellCheckRayLength: -0.71
-  _whatIsTraversable:
-    serializedVersion: 2
-    m_Bits: 64
-  _damagePoints: 20
 --- !u!1 &8166951034244692461
 GameObject:
   m_ObjectHideFlags: 0

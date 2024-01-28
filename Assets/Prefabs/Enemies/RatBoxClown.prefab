@@ -94,7 +94,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7484610051973750490}
   - component: {fileID: 1517136021388753276}
-  - component: {fileID: -5933791923661592700}
   m_Layer: 0
   m_Name: RatBoxClown
   m_TagString: Untagged
@@ -131,30 +130,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bde14fc32c6ebb64486f146fe932c605, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _name: Clown with a Surprise Box
-  _description: A clown that juggles dangerous objects.
-  _attackStrength: 8
-  _currentHealth: 60
-  _maxHealth: 60
---- !u!114 &-5933791923661592700
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6072243770873249260}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5402b589f2c30c64fb87807be45755c1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _moveSpeed: 0
-  _cellCheckOriginPoint: {fileID: 988962130798430773}
-  _cellCheckRayLength: -0.71
-  _whatIsTraversable:
-    serializedVersion: 2
-    m_Bits: 64
-  _damagePoints: 20
 --- !u!1001 &3547618580761695270
 PrefabInstance:
   m_ObjectHideFlags: 0

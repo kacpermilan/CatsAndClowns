@@ -94,7 +94,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3258437431319556446}
   - component: {fileID: 4523577826008542217}
-  - component: {fileID: -7536290668435042678}
   m_Layer: 0
   m_Name: RatBox
   m_TagString: Untagged
@@ -131,30 +130,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7de1f499cf20b1646ad54ff0797facf4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _name: Rat in a Box
-  _description: Tutututu tu tu, tututututu, tu tu tu
-  _attackStrength: 8
-  _currentHealth: 60
-  _maxHealth: 60
---- !u!114 &-7536290668435042678
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 781531166177126963}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5402b589f2c30c64fb87807be45755c1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _moveSpeed: 0
-  _cellCheckOriginPoint: {fileID: 8915531794390334648}
-  _cellCheckRayLength: -0.71
-  _whatIsTraversable:
-    serializedVersion: 2
-    m_Bits: 64
-  _damagePoints: 20
 --- !u!1001 &5132000702746043051
 PrefabInstance:
   m_ObjectHideFlags: 0
