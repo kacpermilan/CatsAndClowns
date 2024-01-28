@@ -32,7 +32,7 @@ public class EnemySpawner : MonoBehaviour
             {
                 for (int i = 0; i < _spawnedEnemies.Count; i++)
                 {
-                    if (!_spawnedEnemies[i].GetComponent<EnemyMover>().HasAttacked())
+                    if (!_spawnedEnemies[i].GetComponent<EnemySequence>().HasAttacked())
                     {
                         return;
                     }

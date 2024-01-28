@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 5696603247263882100}
   - component: {fileID: 3874382570984200262}
   - component: {fileID: 9186177720140375255}
-  - component: {fileID: 3033983860992825705}
+  - component: {fileID: -5931313943522194669}
   m_Layer: 0
-  m_Name: MnichBoss
+  m_Name: EnemyBoss
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -131,7 +131,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &3033983860992825705
+--- !u!114 &-5931313943522194669
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -140,7 +140,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8948456411879971969}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8150f544dadb9bf4a9f9762b8a5b8655, type: 3}
+  m_Script: {fileID: 11500000, guid: 2d515f1c9f6253c4083238fa7eceb1bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _maxHealth: 30
