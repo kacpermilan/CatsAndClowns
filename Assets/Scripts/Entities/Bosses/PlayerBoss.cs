@@ -1,3 +1,4 @@
+using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -8,6 +9,8 @@ public class PlayerBoss : MonoBehaviour
 {
     public static PlayerBoss Instance;
 
+    private CinemachineImpulseSource _impulseSource;
+
     [SerializeField] private float _maxHealth;
     [SerializeField] private float _currentHeatlh;
 
@@ -15,11 +18,13 @@ public class PlayerBoss : MonoBehaviour
     {
         Instance = this;
         _currentHeatlh = _maxHealth;
+        _impulseSource = GetComponent<CinemachineImpulseSource>();
     }
 
     public void TakeDamage(float damage)
     {
         _currentHeatlh -= damage;
+        _impulseSource.GenerateImpulse();
 
         if (_currentHeatlh <= 0)
         {

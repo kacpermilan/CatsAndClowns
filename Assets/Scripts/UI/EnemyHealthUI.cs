@@ -10,7 +10,7 @@ public class EnemyHealthUI : MonoBehaviour
 
     private void Update()
     {
-        //_enemyHealthFill.fillAmount = EnemyBoss.Instance.GetHealthNormalized();
+        
         _enemyHealthFill.fillAmount = Mathf.Lerp(_enemyHealthFill.fillAmount, EnemyBoss.Instance.GetHealthNormalized(), _healthDecreaseUIDisplaySpeed * Time.deltaTime);
     }
 

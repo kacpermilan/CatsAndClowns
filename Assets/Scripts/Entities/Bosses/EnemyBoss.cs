@@ -1,3 +1,4 @@
+using Cinemachine;
 using UnityEngine;
 
 public class EnemyBoss : MonoBehaviour
@@ -7,15 +8,19 @@ public class EnemyBoss : MonoBehaviour
     [SerializeField] private float _maxHealth;
     [SerializeField] private float _currentHeatlh;
 
+    private CinemachineImpulseSource _impulseSource;
+
     private void Awake()
     {
         Instance = this;
         _currentHeatlh = _maxHealth;
+        _impulseSource = GetComponent<CinemachineImpulseSource>();
     }
 
     public void TakeDamage(float damage)
     {
         _currentHeatlh -= damage;
+        _impulseSource.GenerateImpulse();
 
         if (_currentHeatlh <= 0)
         {

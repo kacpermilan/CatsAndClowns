@@ -9,7 +9,7 @@ public class PlayerHealthUI : MonoBehaviour
     [SerializeField] private float _healthUIDecreaseDisplay;
     private void Update()
     {
-        // _playerHealthFill.fillAmount = PlayerBoss.Instance.GetHealthNormalized();
+        
         _playerHealthFill.fillAmount = Mathf.Lerp(_playerHealthFill.fillAmount, PlayerBoss.Instance.GetHealthNormalized(), _healthUIDecreaseDisplay * Time.deltaTime);
     }
 
