@@ -1,33 +1,29 @@
-using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemySequence : MonoBehaviour
 {
-    public static EnemySequence Instance;
+    private GridManager _gridManager;
 
-    [SerializeField] private EnemyWave[] _enemyWaves;
-
-    [SerializeField] private int _currentWaveIndex;
-
-
-    [SerializeField] private Transform[] _spawnPoints;
-
-    // So that we can iterate through all the spawned enemies and only change SpawningState to AWAITINGSPAWN and
-    // GameState to PLAYERCHOICES when all of the currently spawn enemies HasAttacked (ememyMover) and 
-    // and set it back to false when ACTIONSTATE starts again.
+    private int _turn;
     
-    //We also need a way to remove spawned enemies from the list, when ther're destroyed
+    [SerializeField]
+    private GridCell[] _spawnPoints;
+        
+    [SerializeField] 
+    private GameObject[] _enemyList;
 
-    [SerializeField] private List<Transform> _spawnedEnemies = new();
-
-    private GridManager gridManager;
-
+    [SerializeField] 
+    private GameObject _spawnPointMarkerPrefab;
 
     private void Start()
     {
         GameMaster.Instance.OnCurrentStateChange += OnCurrentStateChange;
-        gridManager = FindObjectOfType<GridManager>();
+        _gridManager = FindObjectOfType<GridManager>();
+        
+        ShuffleSpawnPoints();
+        PrepareNewWave();
     }
 
     private void OnDestroy()
@@ -42,66 +38,120 @@ public class EnemySequence : MonoBehaviour
     {
         if (e.CurrentGameState == GameMaster.GameState.EnemySequence)
         {
+            _turn++;
+            ShuffleSpawnPoints();
+            MoveExistingUnits();
+            SpawnEnemyFromWave();
+            PrepareNewWave();
             GameMaster.Instance.SetCurrentState(GameMaster.GameState.PlayerTurn);
         }
     }
 
-    //private void Update()
-    //{
+    private void ShuffleSpawnPoints()
+    {
+        List<GridCell> spawnsWithEntities = new();
+        List<GridCell> spawnsWithoutEntities = new();
 
-    //    if (GameMaster.Instance.GetCurrentGamePhase() == GameMaster.GameState.EnemySequence)
-    //    {
-    //        if (_spawnState == SpawningState.WAITING)
-    //        {
-    //            for (int i = 0; i < _spawnedEnemies.Count; i++)
-    //            {
-    //                if (!_spawnedEnemies[i].GetComponent<EnemyMove>().HasAttacked())
-    //                {
-    //                    return;
-    //                }
+        // Separate spawn points based on whether they contain an entity
+        foreach (GridCell point in _spawnPoints)
+        {
+            if (point.GetEntityInCell() != null)
+            {
+                spawnsWithEntities.Add(point);
+            }
+            else
+            {
+                spawnsWithoutEntities.Add(point);
+            }
+        }
 
-    //                //needs to do the bellow only once there are no EnemyMovers which !HasAttacked
-    //                //Not sure how to implement it. My brain is dead at this point xD
-    //                _spawnState = SpawningState.AWAITINGTOSPAWN;
-    //                GameMaster.Instance.SetCurrentState(GameMaster.GameState.PlayerTurn);
-    //            }
-    //        }
+        // Shuffle the spawn points without entities
+        for (int i = 0; i < spawnsWithoutEntities.Count; i++)
+        {
+            int randomIndex = UnityEngine.Random.Range(i, spawnsWithoutEntities.Count);
+            (spawnsWithoutEntities[i], spawnsWithoutEntities[randomIndex]) = (spawnsWithoutEntities[randomIndex], spawnsWithoutEntities[i]);
+        }
 
-    //        if (_spawnState != SpawningState.SPAWNING)
-    //        {
-    //            StartCoroutine(SpawningRoutine());
-    //        }
-    //    }
-    //}
+        // Combine the two lists, with unoccupied spawn points first
+        spawnsWithoutEntities.AddRange(spawnsWithEntities);
+        _spawnPoints = spawnsWithoutEntities.ToArray();
+    }
 
-    //private IEnumerator SpawningRoutine()
-    //{
-    //    _spawnState = SpawningState.SPAWNING;
+    private void MoveExistingUnits()
+    {
 
-    //    for (int i = 0; i < _enemyWaves[_currentWaveIndex].GetNumberOfEnemiesToSpawn(); i++)
-    //    {
-    //        SpawnEnemyFromWave();
-    //        yield return new WaitForSeconds(0);
-    //    }
-
-    //    //test
-    //    _spawnState = SpawningState.WAITING;
-    //    _currentWaveIndex++;
-    //    //GameMaster.Instance.SetCurrentState(GameMaster.GameState.PLAYERCHOICES);
-    //}
+    }
 
     private void SpawnEnemyFromWave()
     {
-        // I choose to get a random enemy from a selection of enemies in that particular wave
-        //but if you want to change that, every wave have a method to return an enemy with selected index
-        // Enemies spawn at random position from 4 possible spawn points. To make it different, and let player know which lines
-        //the enemies will spawn at first, it will require way more work. So, here's the basics
+        foreach (GridCell spawnPoint in _spawnPoints)
+        {
+            if (spawnPoint.GetEntityInCell() == null)
+            {
+                continue;
+            }
 
-        //Spawn points will be hidden under graphics element with higher layer order.
-        //It's done such way, so that we can actually get the lines of first enemies, once they're spawn, but not moving,
-        //If we have time to implement it
-        Transform enemyInstance = Instantiate(_enemyWaves[_currentWaveIndex].GetRandomEnemy(), _spawnPoints[UnityEngine.Random.Range(0, _spawnPoints.Length)].position, Quaternion.identity);
-        _spawnedEnemies.Add(enemyInstance);
+            Vector2 leftNeighbourPosition = GetLeftNeighbourPosition(spawnPoint.transform.position);
+            GridCell targetCell = FindClosestCell(leftNeighbourPosition);
 
+            if (targetCell != null && targetCell.GetEntityInCell() == null)
+            {
+                GameObject enemyPrefab = _enemyList[UnityEngine.Random.Range(0, _enemyList.Length)];
+                GameObject enemy = Instantiate(enemyPrefab, targetCell.transform.position, Quaternion.identity);
+                targetCell.PlaceEntityInCell(enemy.transform);
+            }
+
+            Destroy(spawnPoint.GetEntityInCell().gameObject);
+        }
+    }
+
+
+    private void PrepareNewWave()
+    {
+        int numberOfSpawns = DetermineNumberOfSpawns();
+
+        for (int i = 0; i < numberOfSpawns; i++)
+        {
+            GameObject warning = Instantiate(_spawnPointMarkerPrefab, _spawnPoints[i].transform.position, Quaternion.identity);
+            _spawnPoints[i].PlaceEntityInCell(warning.transform);
+        }
+    }
+
+    private Vector2 GetLeftNeighbourPosition(Vector2 spawnPointPosition)
+    {
+        float meanCellDistance = 1.7f;
+        return new Vector2(spawnPointPosition.x - meanCellDistance, spawnPointPosition.y);
+    }
+
+
+    private GridCell FindClosestCell(Vector2 targetPosition)
+    {
+        GridCell closestCell = null;
+        float minDistance = float.MaxValue;
+
+        foreach (GridCell cell in _gridManager.GetAllCells())
+        {
+            float distance = Vector2.Distance(cell.transform.position, targetPosition);
+            if (!(distance < minDistance))
+            {
+                continue;
+            }
+
+            minDistance = distance;
+            closestCell = cell;
+        }
+
+        return closestCell;
+    }
+
+    private int DetermineNumberOfSpawns()
+    {
+        return _turn switch
+        {
+            0 => 1,
+            < 3 => UnityEngine.Random.Range(1, 3),
+            < 10 => UnityEngine.Random.Range(1, 4),
+            _ => UnityEngine.Random.Range(2, 5)
+        };
     }
 }
