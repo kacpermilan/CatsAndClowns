@@ -22,6 +22,8 @@ public class EndTurnButton : MonoBehaviour
 
         _endTurnBttn.onClick.AddListener(() =>
         {
+            ResourceManager.Instance.SetResources(0);
+            ResourceManager.Instance.IncreaseResources(1);
             GameMaster.Instance.SetCurrentState(GameMaster.GameState.PlayerAttack);
             _buttonObject.SetActive(false);
         });

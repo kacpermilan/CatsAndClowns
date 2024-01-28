@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerBossAttacker : MonoBehaviour
@@ -16,7 +13,7 @@ public class PlayerBossAttacker : MonoBehaviour
 
     private void LookForPlayer()
     {
-       RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.right, _distance, _whatIsPlayerBoss);
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.right, _distance, _whatIsPlayerBoss);
         if (hit.collider != null)
         {
             hit.collider.GetComponent<PlayerBoss>().TakeDamage(_damagePoints);

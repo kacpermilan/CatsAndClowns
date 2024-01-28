@@ -39,7 +39,7 @@ public abstract class ABaseEntity : MonoBehaviour
         if (_currentHealth <= 0)
         {
             // SoundManager.PlayDeathSound(this);
-            _animator.SetTrigger("Die");
+            //_animator.SetTrigger("Die");
             StartCoroutine(WaitForDeathAnimation());
         }
     }

@@ -10,7 +10,7 @@ public abstract class AEnemyEntity : ABaseEntity
         set
         {
             _standingHere = value;
-            _animator.SetBool("IsStationary", _standingHere);
+            //_animator.SetBool("IsStationary", _standingHere);
         }
     }
 

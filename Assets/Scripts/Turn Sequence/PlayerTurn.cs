@@ -51,7 +51,7 @@ public class PlayerTurn : MonoBehaviour
     {
         if (e.CurrentGameState is GameMaster.GameState.PlayerTurn)
         {
-            ResourceManager.Instance.IncreaseResources(1);
+            
         }
     }
 

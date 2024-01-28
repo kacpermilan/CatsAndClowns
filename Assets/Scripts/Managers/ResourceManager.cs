@@ -15,6 +15,7 @@ public class ResourceManager : MonoBehaviour
         _currentResources = STARTING_RESOURCES;
     }
 
+    public void SetResources(int value) => _currentResources = value;
     public float GetCurrentResources() => _currentResources;
 
     public void IncreaseResources(float amount)
