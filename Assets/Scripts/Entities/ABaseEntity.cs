@@ -31,16 +31,21 @@ public abstract class ABaseEntity : MonoBehaviour
 
     public void TakeDamage(int incomingDamage)
     {
-        // SoundManager.PlayDamageSound(this);
-        //_animator.SetTrigger("Shoot");
         _currentHealth -= incomingDamage;
 
         Debug.Log("current health: " + _currentHealth);
         if (_currentHealth <= 0)
         {
             // SoundManager.PlayDeathSound(this);
-            //_animator.SetTrigger("Die");
+            _animator.SetTrigger("Die");
+            Collider2D cd = GetComponent<Collider2D>();
+            cd.enabled = false;
             StartCoroutine(WaitForDeathAnimation());
+        }
+        else
+        {
+            // SoundManager.PlayDamageSound(this);
+            _animator.SetTrigger("GotHit");
         }
     }
 

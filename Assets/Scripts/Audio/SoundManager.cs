@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SoundManager : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class SoundManager : MonoBehaviour
 
     [SerializeField] private Sound[] _sounds;
 
+    private bool _isMusicPlaying;
+    public bool IsMusicPlaying { get { return _isMusicPlaying; } set {  _isMusicPlaying = value; } }
     private void Start()
     {
         for (int i = 0; i < _sounds.Length; i++)
@@ -19,11 +22,42 @@ public class SoundManager : MonoBehaviour
             _sounds[i].GetAudioSource().loop = _sounds[i].IsLooping();
             _sounds[i].GetAudioSource().outputAudioMixerGroup = _sounds[i].GetAudioMixerGroup();
         }
+
+       
     }
 
     private void Awake()
     {
-        Instance = this;
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    private void Update()
+    {
+        if (SceneManager.GetActiveScene().buildIndex == 0 && !_isMusicPlaying) {
+            Play("MainMenuSong");
+            _isMusicPlaying = true;
+        }
+        else if (SceneManager.GetActiveScene().buildIndex == 1 && !_isMusicPlaying)
+        {
+            Stop("MainMenuSong");
+            Play("Introduction");
+            _isMusicPlaying= true;
+        }
+        else if (SceneManager.GetActiveScene().buildIndex == 2 && !_isMusicPlaying)
+        {
+            Stop("Introduction");
+            Play("SamaGra");
+            _isMusicPlaying= true;
+
+        }
     }
 
     //We subscribe to events which get triggered, when particular sound is to play.
@@ -35,6 +69,17 @@ public class SoundManager : MonoBehaviour
             if (sound.GetName() == name)
             {
                 sound.GetAudioSource().Play();
+            }
+        }
+    }
+
+    private void Stop(string name)
+    {
+        foreach (Sound sound in _sounds)
+        {
+            if (sound.GetName() == name)
+            {
+                sound.GetAudioSource().Stop();
             }
         }
     }
