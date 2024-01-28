@@ -18,6 +18,20 @@ public class EnemySequence : MonoBehaviour
     private GameObject _spawnPointMarkerPrefab;
 
 
+    private bool _enemySequenceInProgress = false;
+    private float _enemySequenceEndTime = 0f;
+    private const float ENEMY_SEQUENCE_DURATION = 2.5f;
+    
+    private void Update()
+    {
+        if (_enemySequenceInProgress && Time.time >= _enemySequenceEndTime)
+        {
+            _enemySequenceInProgress = false;
+            GameMaster.Instance.SetCurrentState(GameMaster.GameState.PlayerTurn);
+        }
+    }
+
+
     private void Start()
     {
         GameMaster.Instance.OnCurrentStateChange += OnCurrentStateChange;
@@ -44,7 +58,9 @@ public class EnemySequence : MonoBehaviour
             MoveExistingUnits();
             SpawnEnemyFromWave();
             PrepareNewWave();
-            GameMaster.Instance.SetCurrentState(GameMaster.GameState.PlayerTurn);
+
+            _enemySequenceEndTime = Time.time + ENEMY_SEQUENCE_DURATION;
+            _enemySequenceInProgress = true;
         }
     }
 
@@ -98,25 +114,51 @@ public class EnemySequence : MonoBehaviour
     private IEnumerator MoveEnemy(AEnemyEntity enemy, GridCell startCell)
     {
         GridCell currentCell = startCell;
+        bool hasAttacked = false;
 
         for (int i = 0; i < enemy.movementSpeed; i++)
         {
-            Vector2 leftPosition = GetLeftNeighbourPosition(currentCell.transform.position);
-            GridCell targetCell = FindClosestCell(leftPosition);
-
-            if (targetCell == null || targetCell.GetEntityInCell() != null)
+            // Try to attack sth on the target tile, if possible, also check for further tiles if applicable.
+            for (int j = 1; j <= enemy.attackRange; j++)
             {
-                break; // Stop moving if next cell is occupied or doesn't exist
+                Vector2 attackPosition = GetLeftNeighbourPosition(currentCell.transform.position, 1.5f * j);
+                GridCell attackTarget = FindClosestCell(attackPosition);
+                if (attackTarget.GetEntityInCell() != null && !hasAttacked)
+                {
+                    hasAttacked = CheckAndDamagePlayerInTarget(attackTarget, enemy.attackStrength);
+                }
             }
 
+            // Check, if movement is possible
+            Vector2 leftPosition = GetLeftNeighbourPosition(currentCell.transform.position);
+            GridCell targetCell = FindClosestCell(leftPosition);
+            if (targetCell == null)
+            {
+                break;
+            }
+            if (targetCell.GetEntityInCell() != null)
+            {
+                break;
+            }
+
+            // Move one tile, if possible
             enemy.StandingHere = false;
             yield return StartCoroutine(MoveToCell(enemy.gameObject, targetCell.transform.position, 1f));
             currentCell.PlaceEntityInCell(null);
             targetCell.PlaceEntityInCell(enemy.transform);
-            currentCell = targetCell; // Update current cell for next iteration
+            currentCell = targetCell;
             enemy.StandingHere = true;
 
-            CheckAndDamageNeighboringPlayer(targetCell, enemy.attackStrength);
+            // Again, try to attack sth on the target tile, if possible, also check for further tiles if applicable.
+            for (int j = 1; j <= enemy.attackRange; j++)
+            {
+                Vector2 attackPosition = GetLeftNeighbourPosition(currentCell.transform.position, 1.5f * j);
+                GridCell attackTarget = FindClosestCell(attackPosition);
+                if (attackTarget.GetEntityInCell() != null && !hasAttacked)
+                {
+                    hasAttacked = CheckAndDamagePlayerInTarget(attackTarget, enemy.attackStrength);
+                }
+            }
         }
     }
 
@@ -136,26 +178,26 @@ public class EnemySequence : MonoBehaviour
         enemy.transform.position = targetPosition;
     }
 
-    private void CheckAndDamageNeighboringPlayer(GridCell cell, int attackStrength)
+    private bool CheckAndDamagePlayerInTarget(GridCell targetCell, int attackStrength)
     {
-        Vector2 rightPosition = GetLeftNeighbourPosition(cell.transform.position);
-        GridCell leftCell = FindClosestCell(rightPosition);
-
-        if (leftCell == null)
+        if (targetCell == null)
         {
-            return;
+            return false;
         }
 
-        if (leftCell.GetEntityInCell() == null)
+        if (targetCell.GetEntityInCell() == null)
         {
-            return;
+            return false;
         }
 
-        APlayerEntity player = leftCell.GetEntityInCell()?.GetComponent<APlayerEntity>();
-        if (player != null)
+        APlayerEntity player = targetCell.GetEntityInCell()?.GetComponent<APlayerEntity>();
+        if (player == null)
         {
-            player.TakeDamage(attackStrength);
+            return false;
         }
+
+        player.TakeDamage(attackStrength);
+        return true;
     }
 
     private void SpawnEnemyFromWave()
@@ -193,10 +235,9 @@ public class EnemySequence : MonoBehaviour
         }
     }
 
-    private Vector2 GetLeftNeighbourPosition(Vector2 cellPosition)
+    private Vector2 GetLeftNeighbourPosition(Vector2 cellPosition, float factor = 1.5f)
     {
-        float meanCellDistance = 1.5f;
-        return new Vector2(cellPosition.x - meanCellDistance, cellPosition.y);
+        return new Vector2(cellPosition.x - factor, cellPosition.y);
     }
 
 

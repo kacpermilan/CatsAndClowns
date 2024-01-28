@@ -61,9 +61,8 @@ public class MarshmallowBullet : MonoBehaviour
             rb.gravityScale = 1;
         }
 
-        yield return new WaitForSeconds(0.075f);
         cd.enabled = false;
-        yield return new WaitForSeconds(delay - 0.075f);
+        yield return new WaitForSeconds(delay);
 
         Destroy(obj);
     }
