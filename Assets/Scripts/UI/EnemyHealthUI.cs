@@ -13,5 +13,4 @@ public class EnemyHealthUI : MonoBehaviour
         
         _enemyHealthFill.fillAmount = Mathf.Lerp(_enemyHealthFill.fillAmount, EnemyBoss.Instance.GetHealthNormalized(), _healthDecreaseUIDisplaySpeed * Time.deltaTime);
     }
-
 }

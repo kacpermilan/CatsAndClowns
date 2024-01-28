@@ -1775,6 +1775,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3874382570984200262, guid: 37b505c09b1504c41993961ae5df0ddf, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5696603247263882100, guid: 37b505c09b1504c41993961ae5df0ddf, type: 3}
       propertyPath: m_LocalPosition.x
       value: 8.54
@@ -3344,6 +3348,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3874382570984200262, guid: 040dc2a1e5331c64a8a4e1f444a73084, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5696603247263882100, guid: 040dc2a1e5331c64a8a4e1f444a73084, type: 3}
       propertyPath: m_LocalPosition.x
       value: -6.16
@@ -4675,7 +4683,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1183296083}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5402b589f2c30c64fb87807be45755c1, type: 3}
+  m_Script: {fileID: 11500000, guid: 9909cc5ea6850234b91ad7cb5800f8f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _spawnPoints:
@@ -4685,6 +4693,8 @@ MonoBehaviour:
   - {fileID: 863709601}
   _enemyList:
   - {fileID: 7244764738261290577, guid: 30e52f131aaa1494a9556a3019149d94, type: 3}
+  - {fileID: 3609102096447387726, guid: 90a6787234702a341895e8ec146e2058, type: 3}
+  - {fileID: 4100577758871702340, guid: b8e83dea5769f19498137b5411ef68db, type: 3}
   _spawnPointMarkerPrefab: {fileID: 8968164859701734254, guid: a2425a46168eeb946abfd389a6620375, type: 3}
 --- !u!4 &1183296085
 Transform:
@@ -4824,7 +4834,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -10
-  m_Sprite: {fileID: 21300000, guid: d1bf04e54625368439c912f42d0558e3, type: 3}
+  m_Sprite: {fileID: 21300000, guid: feb694c94d4100a4b9d056d292a6f320, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
