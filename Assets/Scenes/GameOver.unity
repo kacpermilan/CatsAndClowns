@@ -184,12 +184,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _dialogueLines:
-  - You are too strong for me. Fortunately, thanks to unreasonable amount of catnip,
-    I've discovered the secret of reincarnation. I'll be back again, Devil Clown,
-    until I make sure that you are finally defeated!
-  - To Hell with it, his soul escaped! No matter, with him temporarily out of the
-    picture, I'll finally be able to put my plan into motion. Tremble, townsfolk,
-    for I'm coming for you!
+  - He is too strong! Luckily, thanks to copious amount of catnip, I've learned the
+    secret of reincarnation. See you later, Devil Clown.
+  - You won't make it in time! My evil plan will already be set in motion. Tremble,
+    townsfolk, I'm coming for you!
   _dialogueLineIndex: 0
   _typingSpeed: 0.02
   _nextButtonObject: {fileID: 213851078}
@@ -222,6 +220,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 670844465182717983, guid: 48b3dbc8f335c6c46ae36335d19443bd, type: 3}
+      propertyPath: m_fontSize
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 670844465182717983, guid: 48b3dbc8f335c6c46ae36335d19443bd, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 4787949981520263841, guid: 48b3dbc8f335c6c46ae36335d19443bd, type: 3}
       propertyPath: m_Name
       value: MainCanvas

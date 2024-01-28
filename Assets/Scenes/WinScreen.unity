@@ -136,6 +136,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 670844465182717983, guid: 48b3dbc8f335c6c46ae36335d19443bd, type: 3}
+      propertyPath: m_fontSize
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 670844465182717983, guid: 48b3dbc8f335c6c46ae36335d19443bd, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 4787949981520263841, guid: 48b3dbc8f335c6c46ae36335d19443bd, type: 3}
       propertyPath: m_Name
       value: MainCanvas
@@ -291,11 +299,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _dialogueLines:
-  - I can feel his power waning! It's time to recite the prayer of banishment! By
-    Paw and by Claw, go back whence you came!
-  - Well, well, well, Cat Monk. I see you're living up to your legend. I have no
-    choice but concede my defeat. But don't worry. We will meet again. After all...
-    I have all eternity to spare.
+  - It's time to recite the prayer of banishment! By Paw and by Claw, go back whence
+    you came!
+  - Well, well, well, Cat Monk. I have no choice but to concede my defeat. We will
+    meet again. After all... I have all eternity to spare.
   _dialogueLineIndex: 0
   _typingSpeed: 0.02
   _nextButtonObject: {fileID: 598504985}
