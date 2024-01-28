@@ -130,6 +130,7 @@ GameObject:
   - component: {fileID: 6728253426271775773}
   - component: {fileID: 6275863339447152960}
   - component: {fileID: 16762523893662313}
+  - component: {fileID: 66179341627650806}
   m_Layer: 0
   m_Name: BasicClown
   m_TagString: Untagged
@@ -201,6 +202,23 @@ CapsuleCollider2D:
   m_Offset: {x: -0.059631348, y: 0.026489258}
   m_Size: {x: 0.8046875, y: 1.5033875}
   m_Direction: 0
+--- !u!114 &66179341627650806
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7244764738261290577}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb133807fb4e4d0478c4afa0e4ac3c3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _distance: 10
+  _whatIsPlayerBoss:
+    serializedVersion: 2
+    m_Bits: 256
+  _damagePoints: -1.25
 --- !u!1001 &4792125755696270109
 PrefabInstance:
   m_ObjectHideFlags: 0
