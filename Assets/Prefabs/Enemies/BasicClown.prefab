@@ -205,7 +205,7 @@ MonoBehaviour:
   _whatIsPlayerBoss:
     serializedVersion: 2
     m_Bits: 256
-  _damagePoints: 10
+  _damagePoints: 1
 --- !u!1001 &4792125755696270109
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -99,7 +99,7 @@ MonoBehaviour:
   _whatIsPlayerBoss:
     serializedVersion: 2
     m_Bits: 256
-  _damagePoints: 10
+  _damagePoints: 2
 --- !u!1 &8166951034244692461
 GameObject:
   m_ObjectHideFlags: 0

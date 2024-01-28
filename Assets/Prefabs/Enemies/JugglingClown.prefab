@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4420710527780345516}
   - component: {fileID: 7949165787485326031}
   - component: {fileID: 3400761498367420700}
+  - component: {fileID: 1173788965567987706}
   m_Layer: 0
   m_Name: JugglingClown
   m_TagString: Untagged
@@ -82,6 +83,23 @@ CapsuleCollider2D:
   m_Offset: {x: 0.010001898, y: -0.022504687}
   m_Size: {x: 0.66003275, y: 1.5751197}
   m_Direction: 0
+--- !u!114 &1173788965567987706
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4100577758871702340}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb133807fb4e4d0478c4afa0e4ac3c3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _distance: -1.25
+  _whatIsPlayerBoss:
+    serializedVersion: 2
+    m_Bits: 256
+  _damagePoints: 2
 --- !u!1 &4489737082531178821
 GameObject:
   m_ObjectHideFlags: 0
