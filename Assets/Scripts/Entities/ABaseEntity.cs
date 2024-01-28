@@ -29,7 +29,7 @@ public abstract class ABaseEntity : MonoBehaviour
         _animator = GetComponentInChildren<Animator>();
     }
 
-    public void TakeDamage(int incomingDamage)
+    public virtual void TakeDamage(int incomingDamage)
     {
         _currentHealth -= incomingDamage;
 

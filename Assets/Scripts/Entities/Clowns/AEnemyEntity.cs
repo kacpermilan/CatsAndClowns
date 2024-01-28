@@ -29,4 +29,15 @@ public abstract class AEnemyEntity : ABaseEntity
         _animator = GetComponentInChildren<Animator>();
         StandingHere = true;
     }
+
+    public override void TakeDamage(int incomingDamage)
+    {
+        AudioSource audioSource = GetComponent<AudioSource>();
+        if (audioSource != null && audioSource.clip != null)
+        {
+            audioSource.Play();
+        }
+
+        base.TakeDamage(incomingDamage);
+    }
 }
