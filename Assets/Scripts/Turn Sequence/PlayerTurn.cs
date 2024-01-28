@@ -49,7 +49,10 @@ public class PlayerTurn : MonoBehaviour
 
     private void OnCurrentStateChange(object sender, GameMaster.OnCurrentStateChangeEventArgs e)
     {
-        ResourceManager.Instance.IncreaseResources(1);
+        if (e.CurrentGameState is GameMaster.GameState.PlayerTurn)
+        {
+            ResourceManager.Instance.IncreaseResources(1);
+        }
     }
 
     private void SearchForCards()

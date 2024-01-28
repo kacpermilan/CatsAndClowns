@@ -196,10 +196,10 @@
             }
         }
 
-        private Vector2 GetLeftNeighbourPosition(Vector2 spawnPointPosition)
+        private Vector2 GetLeftNeighbourPosition(Vector2 cellPosition)
         {
-            float meanCellDistance = 1.7f;
-            return new Vector2(spawnPointPosition.x - meanCellDistance, spawnPointPosition.y);
+            float meanCellDistance = 1f;
+            return new Vector2(cellPosition.x - meanCellDistance, cellPosition.y);
         }
 
 

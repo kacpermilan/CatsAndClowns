@@ -3049,7 +3049,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1414381309433703832, guid: c39966e9a1f4d804ca9036ed8a24e03e, type: 3}
       propertyPath: m_Offset.x
-      value: -0.33267218
+      value: -0.06
       objectReference: {fileID: 0}
     - target: {fileID: 1414381309433703832, guid: c39966e9a1f4d804ca9036ed8a24e03e, type: 3}
       propertyPath: m_Offset.y
@@ -3057,7 +3057,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5308968185970020481, guid: c39966e9a1f4d804ca9036ed8a24e03e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.5
+      value: 3.17
       objectReference: {fileID: 0}
     - target: {fileID: 5308968185970020481, guid: c39966e9a1f4d804ca9036ed8a24e03e, type: 3}
       propertyPath: m_LocalPosition.y
@@ -4671,7 +4671,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1183296083}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5402b589f2c30c64fb87807be45755c1, type: 3}
+  m_Script: {fileID: 11500000, guid: 9909cc5ea6850234b91ad7cb5800f8f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _spawnPoints:
