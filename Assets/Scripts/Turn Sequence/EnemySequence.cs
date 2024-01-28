@@ -110,10 +110,12 @@
                     break; // Stop moving if next cell is occupied or doesn't exist
                 }
 
+                enemy.StandingHere = false;
                 yield return StartCoroutine(MoveToCell(enemy.gameObject, targetCell.transform.position, 1f));
                 currentCell.PlaceEntityInCell(null);
                 targetCell.PlaceEntityInCell(enemy.transform);
                 currentCell = targetCell; // Update current cell for next iteration
+                enemy.StandingHere = true;
 
                 CheckAndDamageNeighboringPlayer(targetCell, enemy.attackStrength);
             }

@@ -144,7 +144,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8150f544dadb9bf4a9f9762b8a5b8655, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 30
+  _maxHealth: 5
   _currentHeatlh: 0
 --- !u!114 &1139439426794517083
 MonoBehaviour:

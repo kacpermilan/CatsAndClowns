@@ -1,5 +1,19 @@
+using UnityEngine;
+
 public abstract class AEnemyEntity : ABaseEntity
 {
+    private bool _standingHere;
+
+    public bool StandingHere
+    {
+        get => _standingHere;
+        set
+        {
+            _standingHere = value;
+            _animator.SetBool("IsStationary", _standingHere);
+        }
+    }
+
     public int movementSpeed { get; private set; }
     public int attackRange { get; private set; }
 
@@ -8,5 +22,11 @@ public abstract class AEnemyEntity : ABaseEntity
     {
         this.movementSpeed = movementSpeed;
         this.attackRange = attackRange;
+    }
+
+    private void Awake()
+    {
+        _animator = GetComponentInChildren<Animator>();
+        StandingHere = true;
     }
 }

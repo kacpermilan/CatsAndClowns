@@ -31,7 +31,7 @@ public class PlayerUnitActions : MonoBehaviour
     {
         PerformActionsOnPlayerUnits();
 
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(1.5f);
         yield return new WaitUntil(() => GameObject.FindGameObjectsWithTag("ProjectileTag").Length == 0);
 
         GameMaster.Instance.SetCurrentState(GameMaster.GameState.EnemySequence);

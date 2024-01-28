@@ -4607,7 +4607,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1183296083}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5402b589f2c30c64fb87807be45755c1, type: 3}
+  m_Script: {fileID: 11500000, guid: 9909cc5ea6850234b91ad7cb5800f8f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _spawnPoints:
@@ -4617,6 +4617,8 @@ MonoBehaviour:
   - {fileID: 863709601}
   _enemyList:
   - {fileID: 7244764738261290577, guid: 30e52f131aaa1494a9556a3019149d94, type: 3}
+  - {fileID: 3609102096447387726, guid: 90a6787234702a341895e8ec146e2058, type: 3}
+  - {fileID: 4100577758871702340, guid: b8e83dea5769f19498137b5411ef68db, type: 3}
   _spawnPointMarkerPrefab: {fileID: 8968164859701734254, guid: a2425a46168eeb946abfd389a6620375, type: 3}
 --- !u!4 &1183296085
 Transform:

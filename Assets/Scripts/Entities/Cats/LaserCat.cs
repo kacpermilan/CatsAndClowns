@@ -12,6 +12,16 @@ public class LaserCat : APlayerEntity
         _launchForce = 20f;
     }
 
+    private void Awake()
+    {
+        _animator = GetComponentInChildren<Animator>();
+    }
+
+    private void Update()
+    {
+        _animator.SetBool("IsResting", OnCooldown);
+    }
+
     public override void DoAction()
     {
         if (LaserBulletPrefab == null)
