@@ -989,7 +989,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &307930745 stripped
+--- !u!114 &307930746 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6814500890274947950, guid: c39966e9a1f4d804ca9036ed8a24e03e, type: 3}
   m_PrefabInstance: {fileID: 307930741}
@@ -1777,11 +1777,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5696603247263882100, guid: 37b505c09b1504c41993961ae5df0ddf, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 9.77
+      value: 8.54
       objectReference: {fileID: 0}
     - target: {fileID: 5696603247263882100, guid: 37b505c09b1504c41993961ae5df0ddf, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.3
+      value: 0.19
       objectReference: {fileID: 0}
     - target: {fileID: 5696603247263882100, guid: 37b505c09b1504c41993961ae5df0ddf, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3325,7 +3325,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &863709600 stripped
+--- !u!114 &863709601 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6814500890274947950, guid: c39966e9a1f4d804ca9036ed8a24e03e, type: 3}
   m_PrefabInstance: {fileID: 863709596}
@@ -4001,7 +4001,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &1052122154 stripped
+--- !u!114 &1052122155 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6814500890274947950, guid: c39966e9a1f4d804ca9036ed8a24e03e, type: 3}
   m_PrefabInstance: {fileID: 1052122150}
@@ -4238,7 +4238,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &1061558682 stripped
+--- !u!114 &1061558683 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6814500890274947950, guid: c39966e9a1f4d804ca9036ed8a24e03e, type: 3}
   m_PrefabInstance: {fileID: 1061558678}
@@ -4679,10 +4679,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _spawnPoints:
-  - {fileID: 307930745}
-  - {fileID: 1052122154}
-  - {fileID: 1061558682}
-  - {fileID: 863709600}
+  - {fileID: 307930746}
+  - {fileID: 1052122155}
+  - {fileID: 1061558683}
+  - {fileID: 863709601}
   _enemyList:
   - {fileID: 7244764738261290577, guid: 30e52f131aaa1494a9556a3019149d94, type: 3}
   _spawnPointMarkerPrefab: {fileID: 8968164859701734254, guid: a2425a46168eeb946abfd389a6620375, type: 3}

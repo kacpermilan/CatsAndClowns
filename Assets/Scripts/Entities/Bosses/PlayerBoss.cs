@@ -1,7 +1,4 @@
 using Cinemachine;
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -28,7 +25,7 @@ public class PlayerBoss : MonoBehaviour
 
         if (_currentHeatlh <= 0)
         {
-            //SceneManager.LoadScene(3);
+            SceneManager.LoadScene(4);
         }
     }
 

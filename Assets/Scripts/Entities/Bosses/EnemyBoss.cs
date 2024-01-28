@@ -1,5 +1,6 @@
 using Cinemachine;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EnemyBoss : MonoBehaviour
 {
@@ -24,7 +25,7 @@ public class EnemyBoss : MonoBehaviour
 
         if (_currentHeatlh <= 0)
         {
-            //SceneManager.LoadScene(3);
+            SceneManager.LoadScene(3);
         }
     }
 
