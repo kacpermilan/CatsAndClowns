@@ -1425,7 +1425,7 @@ MonoBehaviour:
     going to stop the hellish machinations... or meow trying.
   _currentSentenceIndex: 0
   _typingSpeed: 0.05
-  _timeBetweenNextSentences: 2.5
+  _timeBetweenNextSentences: 0.005
   _state: 1
 --- !u!1 &1937515461
 GameObject:
