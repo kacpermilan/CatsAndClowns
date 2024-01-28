@@ -226,9 +226,9 @@
             return _turn switch
             {
                 0 => 1,
-                < 3 => UnityEngine.Random.Range(1, 3),
-                < 10 => UnityEngine.Random.Range(1, 4),
-                _ => UnityEngine.Random.Range(2, 5)
+                < 3 => UnityEngine.Random.Range(2, 4),
+                < 10 => UnityEngine.Random.Range(2, 5),
+                _ => UnityEngine.Random.Range(3, 5)
             };
         }
     }
