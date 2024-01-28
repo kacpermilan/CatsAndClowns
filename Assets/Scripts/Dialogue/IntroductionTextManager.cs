@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class IntroductionTextManager : MonoBehaviour
 {
@@ -10,6 +11,8 @@ public class IntroductionTextManager : MonoBehaviour
 
     [SerializeField] private GameObject _introductionTextCanvas;
     [SerializeField] private TextMeshProUGUI _introductionText;
+    [SerializeField] private GameObject _startButtonObject;
+    [SerializeField] private Button _startButton;
 
     [TextArea(4,7)]
     [SerializeField] private string[] _textToWrite;
@@ -21,7 +24,12 @@ public class IntroductionTextManager : MonoBehaviour
     private void Start()
     {
         _introductionText.text = string.Empty;
-        
+
+        _startButton.onClick.AddListener(() =>
+        {
+            _introductionTextCanvas.SetActive(false);
+            DialogueManager.Instance.SetIsPlayingDialogue(true);
+        });
     }
 
     private void Update()
@@ -35,8 +43,8 @@ public class IntroductionTextManager : MonoBehaviour
             }
             else
             {
-                _introductionTextCanvas.SetActive(false);
-                DialogueManager.Instance.SetIsPlayingDialogue(true);
+                _startButtonObject.SetActive(true);
+                return;
             }
         }
 
