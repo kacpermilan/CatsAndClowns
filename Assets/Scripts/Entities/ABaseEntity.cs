@@ -38,6 +38,8 @@ public abstract class ABaseEntity : MonoBehaviour
         {
             // SoundManager.PlayDeathSound(this);
             _animator.SetTrigger("Die");
+            Collider2D cd = GetComponent<Collider2D>();
+            cd.enabled = false;
             StartCoroutine(WaitForDeathAnimation());
         }
         else
