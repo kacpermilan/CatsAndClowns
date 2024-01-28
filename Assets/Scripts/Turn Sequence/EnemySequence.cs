@@ -224,7 +224,7 @@ public class EnemySequence : MonoBehaviour
         {
             return _turn switch
             {
-                0 => 1,
+                0 => 2,
                 < 3 => UnityEngine.Random.Range(2, 4),
                 < 10 => UnityEngine.Random.Range(2, 5),
                 _ => UnityEngine.Random.Range(3, 5)
