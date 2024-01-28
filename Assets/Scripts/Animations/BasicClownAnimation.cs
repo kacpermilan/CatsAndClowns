@@ -11,5 +11,6 @@ public class BasicClownAnimation : MonoBehaviour
         _animator = GetComponent<Animator>();
     }
 
-    //WAITING FOR CLOWN METHOD
+    
+    
 }
