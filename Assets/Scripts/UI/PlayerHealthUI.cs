@@ -10,6 +10,7 @@ public class PlayerHealthUI : MonoBehaviour
     private void Update()
     {
         _playerHealthFill.fillAmount = PlayerBoss.Instance.GetHealthNormalized();
+      
     }
 
 }
