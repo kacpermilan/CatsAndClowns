@@ -1816,6 +1816,50 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 987198256}
   m_CullTransparentMesh: 1
+--- !u!1 &1044363183
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1044363185}
+  - component: {fileID: 1044363184}
+  m_Layer: 0
+  m_Name: MusicSetter
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1044363184
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1044363183}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 551be285e04409040bd8f61ae4ae06b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1044363185
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1044363183}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.4745172, y: 0.46422455, z: 0.04634934}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1046366596
 GameObject:
   m_ObjectHideFlags: 0
@@ -2113,110 +2157,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6349799009223199567, guid: 5b8141b9d445eb64fa9c6a6c83d88903, type: 3}
-      propertyPath: _sounds.Array.size
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6349799009223199567, guid: 5b8141b9d445eb64fa9c6a6c83d88903, type: 3}
-      propertyPath: _sounds.Array.data[0]._clip
-      value: 
-      objectReference: {fileID: 8300000, guid: 6513c3b1dd9df8d49b03240b06107a98, type: 3}
-    - target: {fileID: 6349799009223199567, guid: 5b8141b9d445eb64fa9c6a6c83d88903, type: 3}
-      propertyPath: _sounds.Array.data[0]._name
-      value: MainMenuSong
-      objectReference: {fileID: 0}
-    - target: {fileID: 6349799009223199567, guid: 5b8141b9d445eb64fa9c6a6c83d88903, type: 3}
-      propertyPath: _sounds.Array.data[1]._clip
-      value: 
-      objectReference: {fileID: 8300000, guid: 658bc45b992210b47805c93b18435d37, type: 3}
-    - target: {fileID: 6349799009223199567, guid: 5b8141b9d445eb64fa9c6a6c83d88903, type: 3}
-      propertyPath: _sounds.Array.data[1]._name
-      value: WinScreenMusic
-      objectReference: {fileID: 0}
-    - target: {fileID: 6349799009223199567, guid: 5b8141b9d445eb64fa9c6a6c83d88903, type: 3}
-      propertyPath: _sounds.Array.data[2]._clip
-      value: 
-      objectReference: {fileID: 8300000, guid: 9cf2ddddf3627d449b32498dfbc4fbdd, type: 3}
-    - target: {fileID: 6349799009223199567, guid: 5b8141b9d445eb64fa9c6a6c83d88903, type: 3}
-      propertyPath: _sounds.Array.data[2]._name
-      value: SamaGra
-      objectReference: {fileID: 0}
-    - target: {fileID: 6349799009223199567, guid: 5b8141b9d445eb64fa9c6a6c83d88903, type: 3}
-      propertyPath: _sounds.Array.data[3]._clip
-      value: 
-      objectReference: {fileID: 8300000, guid: 8d227fa425ca6f34ea73c60bb29e2093, type: 3}
-    - target: {fileID: 6349799009223199567, guid: 5b8141b9d445eb64fa9c6a6c83d88903, type: 3}
-      propertyPath: _sounds.Array.data[3]._name
-      value: CatDamage
-      objectReference: {fileID: 0}
-    - target: {fileID: 6349799009223199567, guid: 5b8141b9d445eb64fa9c6a6c83d88903, type: 3}
-      propertyPath: _sounds.Array.data[4]._clip
-      value: 
-      objectReference: {fileID: 8300000, guid: 19c85bb4e52cc6d458d7a6e3d3d029bf, type: 3}
-    - target: {fileID: 6349799009223199567, guid: 5b8141b9d445eb64fa9c6a6c83d88903, type: 3}
-      propertyPath: _sounds.Array.data[4]._name
-      value: Introduction
-      objectReference: {fileID: 0}
-    - target: {fileID: 6349799009223199567, guid: 5b8141b9d445eb64fa9c6a6c83d88903, type: 3}
-      propertyPath: _sounds.Array.data[0]._volume
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6349799009223199567, guid: 5b8141b9d445eb64fa9c6a6c83d88903, type: 3}
-      propertyPath: _sounds.Array.data[1]._volume
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6349799009223199567, guid: 5b8141b9d445eb64fa9c6a6c83d88903, type: 3}
-      propertyPath: _sounds.Array.data[2]._volume
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6349799009223199567, guid: 5b8141b9d445eb64fa9c6a6c83d88903, type: 3}
-      propertyPath: _sounds.Array.data[3]._volume
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6349799009223199567, guid: 5b8141b9d445eb64fa9c6a6c83d88903, type: 3}
-      propertyPath: _sounds.Array.data[4]._volume
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6349799009223199567, guid: 5b8141b9d445eb64fa9c6a6c83d88903, type: 3}
-      propertyPath: _sounds.Array.data[0]._isLooping
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6349799009223199567, guid: 5b8141b9d445eb64fa9c6a6c83d88903, type: 3}
-      propertyPath: _sounds.Array.data[1]._isLooping
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6349799009223199567, guid: 5b8141b9d445eb64fa9c6a6c83d88903, type: 3}
-      propertyPath: _sounds.Array.data[2]._isLooping
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6349799009223199567, guid: 5b8141b9d445eb64fa9c6a6c83d88903, type: 3}
-      propertyPath: _sounds.Array.data[3]._isLooping
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6349799009223199567, guid: 5b8141b9d445eb64fa9c6a6c83d88903, type: 3}
-      propertyPath: _sounds.Array.data[4]._isLooping
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6349799009223199567, guid: 5b8141b9d445eb64fa9c6a6c83d88903, type: 3}
-      propertyPath: _sounds.Array.data[0]._audioMixerGroup
-      value: 
-      objectReference: {fileID: 8928577195629235463, guid: 3d333ec0d1da52741b53f0d5880fc5f0, type: 2}
-    - target: {fileID: 6349799009223199567, guid: 5b8141b9d445eb64fa9c6a6c83d88903, type: 3}
-      propertyPath: _sounds.Array.data[1]._audioMixerGroup
-      value: 
-      objectReference: {fileID: 8928577195629235463, guid: 3d333ec0d1da52741b53f0d5880fc5f0, type: 2}
-    - target: {fileID: 6349799009223199567, guid: 5b8141b9d445eb64fa9c6a6c83d88903, type: 3}
-      propertyPath: _sounds.Array.data[2]._audioMixerGroup
-      value: 
-      objectReference: {fileID: 8928577195629235463, guid: 3d333ec0d1da52741b53f0d5880fc5f0, type: 2}
-    - target: {fileID: 6349799009223199567, guid: 5b8141b9d445eb64fa9c6a6c83d88903, type: 3}
-      propertyPath: _sounds.Array.data[3]._audioMixerGroup
-      value: 
-      objectReference: {fileID: 3929256799553289112, guid: 3d333ec0d1da52741b53f0d5880fc5f0, type: 2}
-    - target: {fileID: 6349799009223199567, guid: 5b8141b9d445eb64fa9c6a6c83d88903, type: 3}
-      propertyPath: _sounds.Array.data[4]._audioMixerGroup
-      value: 
-      objectReference: {fileID: 8928577195629235463, guid: 3d333ec0d1da52741b53f0d5880fc5f0, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4192,8 +4132,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -4210,8 +4150,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 30
-  m_fontSizeBase: 30
+  m_fontSize: 34
+  m_fontSizeBase: 34
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -4504,3 +4444,4 @@ SceneRoots:
   - {fileID: 1673714104}
   - {fileID: 762276242}
   - {fileID: 1066232104}
+  - {fileID: 1044363185}

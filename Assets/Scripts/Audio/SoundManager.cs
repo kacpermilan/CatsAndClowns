@@ -42,21 +42,43 @@ public class SoundManager : MonoBehaviour
     private void Update()
     {
         if (SceneManager.GetActiveScene().buildIndex == 0 && !_isMusicPlaying) {
-            Play("MainMenuSong");
+            PlayExclusive("MainMenuSong");
             _isMusicPlaying = true;
         }
         else if (SceneManager.GetActiveScene().buildIndex == 1 && !_isMusicPlaying)
         {
-            Stop("MainMenuSong");
-            Play("Introduction");
+            PlayExclusive("Introduction");
             _isMusicPlaying= true;
         }
         else if (SceneManager.GetActiveScene().buildIndex == 2 && !_isMusicPlaying)
         {
-            Stop("Introduction");
-            Play("SamaGra");
+            PlayExclusive("SamaGra");
             _isMusicPlaying= true;
+        }
+        else if (SceneManager.GetActiveScene().buildIndex == 3 && !_isMusicPlaying)
+        {
+            PlayExclusive("WinScreenMusic");
+            _isMusicPlaying= true;
+        }
+        else if (SceneManager.GetActiveScene().buildIndex == 4 && !_isMusicPlaying)
+        {
+            PlayExclusive("GameOverMusic");
+            _isMusicPlaying= true;
+        }
+    }
 
+    private void PlayExclusive(string name)
+    {
+        foreach (Sound sound in _sounds)
+        {
+            if (sound.GetName() == name)
+            {
+                sound.GetAudioSource().Play();
+            }
+            else
+            {
+                sound.GetAudioSource().Stop();
+            }
         }
     }
 

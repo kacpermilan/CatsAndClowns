@@ -44,4 +44,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1faf8385afaefbc428b742e41a0ce980, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _sounds: []
+  _sounds:
+  - _audioSource: {fileID: 0}
+    _name: MainMenuSong
+    _clip: {fileID: 8300000, guid: 6513c3b1dd9df8d49b03240b06107a98, type: 3}
+    _volume: 1
+    _isLooping: 1
+    _audioMixerGroup: {fileID: 8928577195629235463, guid: 3d333ec0d1da52741b53f0d5880fc5f0, type: 2}
+  - _audioSource: {fileID: 0}
+    _name: WinScreenMusic
+    _clip: {fileID: 8300000, guid: 658bc45b992210b47805c93b18435d37, type: 3}
+    _volume: 1
+    _isLooping: 1
+    _audioMixerGroup: {fileID: 8928577195629235463, guid: 3d333ec0d1da52741b53f0d5880fc5f0, type: 2}
+  - _audioSource: {fileID: 0}
+    _name: SamaGra
+    _clip: {fileID: 8300000, guid: 9cf2ddddf3627d449b32498dfbc4fbdd, type: 3}
+    _volume: 1
+    _isLooping: 1
+    _audioMixerGroup: {fileID: 8928577195629235463, guid: 3d333ec0d1da52741b53f0d5880fc5f0, type: 2}
+  - _audioSource: {fileID: 0}
+    _name: CatDamage
+    _clip: {fileID: 8300000, guid: 8d227fa425ca6f34ea73c60bb29e2093, type: 3}
+    _volume: 1
+    _isLooping: 1
+    _audioMixerGroup: {fileID: 3929256799553289112, guid: 3d333ec0d1da52741b53f0d5880fc5f0, type: 2}
+  - _audioSource: {fileID: 0}
+    _name: Introduction
+    _clip: {fileID: 8300000, guid: 19c85bb4e52cc6d458d7a6e3d3d029bf, type: 3}
+    _volume: 1
+    _isLooping: 1
+    _audioMixerGroup: {fileID: 8928577195629235463, guid: 3d333ec0d1da52741b53f0d5880fc5f0, type: 2}
